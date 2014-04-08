@@ -1,0 +1,37 @@
+﻿Build started 06/04/2014 11:32:05 AM.
+     1>Project "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\Engine\Advanced2D\Advanced2D.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _LIB /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Advanced2D.cpp ..\Audio.cpp ..\Camera.cpp ..\Entity.cpp ..\Input.cpp ..\Light.cpp ..\Mesh.cpp ..\ParticleEmitter.cpp ..\Sprite.cpp ..\Texture.cpp ..\Timer.cpp ..\Vector3.cpp ..\Video.cpp ..\winmain.cpp
+         Advanced2D.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Audio.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Camera.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Entity.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Input.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Light.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Mesh.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         ParticleEmitter.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Sprite.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Texture.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Timer.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Vector3.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         Video.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+         winmain.cpp
+     1>c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\Advanced2D.h(41): fatal error C1083: Cannot open include file: 'fmod.hpp': No such file or directory
+     1>Done Building Project "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\Engine\Advanced2D\Advanced2D.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:18.84

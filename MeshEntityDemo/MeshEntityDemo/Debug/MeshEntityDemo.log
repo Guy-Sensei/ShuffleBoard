@@ -1,0 +1,12 @@
+﻿Build started 08/04/2014 9:45:04 AM.
+     1>Project "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\MeshEntityDemo\MeshEntityDemo\MeshEntityDemo.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.exe" /INCREMENTAL /NOLOGO ..\..\Engine\lib\debug\Advanced2D.lib d3d9.lib d3dx9.lib dinput8.lib dxguid.lib winmm.lib xinput.lib Strmiids.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.lib" /MACHINE:X86 Debug\main.obj
+         Debug\Rock.obj
+         Debug\ShuffleBoardGame.obj
+         MeshEntityDemo.vcxproj -> C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.exe
+     1>Done Building Project "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\MeshEntityDemo\MeshEntityDemo\MeshEntityDemo.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.93
