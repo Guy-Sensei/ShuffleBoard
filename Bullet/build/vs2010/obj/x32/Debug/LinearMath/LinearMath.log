@@ -1,5 +1,5 @@
-﻿Build started 08/04/2014 5:23:41 PM.
-     1>Project "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2005\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 10/04/2014 4:58:37 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\LinearMath.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Debug\LinearMath\\" /Fd"..\..\lib\LinearMath_vs2010_debug.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\src\LinearMath\btAlignedAllocator.cpp ..\..\src\LinearMath\btConvexHull.cpp ..\..\src\LinearMath\btConvexHullComputer.cpp ..\..\src\LinearMath\btGeometryUtil.cpp ..\..\src\LinearMath\btPolarDecomposition.cpp ..\..\src\LinearMath\btQuickprof.cpp ..\..\src\LinearMath\btSerializer.cpp ..\..\src\LinearMath\btVector3.cpp
          btAlignedAllocator.cpp
@@ -7,9 +7,9 @@
          btConvexHullComputer.cpp
          btGeometryUtil.cpp
          btPolarDecomposition.cpp
-         btQuickprof.cpp
      1>..\..\src\LinearMath\btPolarDecomposition.cpp(63): warning C4244: 'initializing' : conversion from 'double' to 'const btScalar', possible loss of data
      1>..\..\src\LinearMath\btPolarDecomposition.cpp(66): warning C4244: 'argument' : conversion from 'double' to 'const btScalar', possible loss of data
+         btQuickprof.cpp
          btSerializer.cpp
          btVector3.cpp
        Lib:
@@ -21,9 +21,9 @@
          obj\x32\Debug\LinearMath\btQuickprof.obj
          obj\x32\Debug\LinearMath\btSerializer.obj
          obj\x32\Debug\LinearMath\btVector3.obj
-         LinearMath.vcxproj -> C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2005\GamePhysicsTestBedVS2012\Bullet\build\vs2010\..\..\lib\LinearMath_vs2010_debug.lib
-     1>Done Building Project "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2005\GamePhysicsTestBedVS2012\Bullet\build\vs2010\LinearMath.vcxproj" (Rebuild target(s)).
+         LinearMath.vcxproj -> C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\..\..\lib\LinearMath_vs2010_debug.lib
+     1>Done Building Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\LinearMath.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.65
+Time Elapsed 00:00:06.87

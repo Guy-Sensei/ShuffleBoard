@@ -1,4 +1,4 @@
-﻿Build started 08/04/2014 5:48:41 PM.
+﻿Build started 10/04/2014 4:54:04 PM.
      1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_HelloWorld.vcxproj" on node 4 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /I..\..\Glut /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D GLEW_STATIC /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\App_HelloWorld\\" /Fd"obj\x32\Release\App_HelloWorld\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Demos\HelloWorld\HelloWorld.cpp
@@ -13,4 +13,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.97
+Time Elapsed 00:00:03.80

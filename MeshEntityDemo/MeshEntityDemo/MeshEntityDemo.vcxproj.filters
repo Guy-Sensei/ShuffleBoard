@@ -27,6 +27,9 @@
     <ClCompile Include="ShuffleBoardGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rock.h">
@@ -64,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="TitleScreenState.h">
       <Filter>Header Files\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DMotionState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

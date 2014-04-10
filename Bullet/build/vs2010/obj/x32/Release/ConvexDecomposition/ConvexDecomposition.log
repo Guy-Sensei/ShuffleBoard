@@ -1,5 +1,5 @@
-﻿Build started 08/04/2014 5:46:55 PM.
-     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\ConvexDecomposition.vcxproj" on node 4 (Rebuild target(s)).
+﻿Build started 10/04/2014 4:52:22 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\ConvexDecomposition.vcxproj" on node 3 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\Extras\ConvexDecomposition /I..\..\src /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\ConvexDecomposition\\" /Fd"obj\x32\Release\ConvexDecomposition\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Extras\ConvexDecomposition\bestfit.cpp ..\..\Extras\ConvexDecomposition\bestfitobb.cpp ..\..\Extras\ConvexDecomposition\cd_hull.cpp ..\..\Extras\ConvexDecomposition\cd_wavefront.cpp ..\..\Extras\ConvexDecomposition\concavity.cpp ..\..\Extras\ConvexDecomposition\ConvexBuilder.cpp ..\..\Extras\ConvexDecomposition\ConvexDecomposition.cpp ..\..\Extras\ConvexDecomposition\fitsphere.cpp ..\..\Extras\ConvexDecomposition\float_math.cpp ..\..\Extras\ConvexDecomposition\meshvolume.cpp ..\..\Extras\ConvexDecomposition\planetri.cpp ..\..\Extras\ConvexDecomposition\raytri.cpp ..\..\Extras\ConvexDecomposition\splitplane.cpp ..\..\Extras\ConvexDecomposition\vlookup.cpp
          bestfit.cpp
@@ -36,4 +36,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:14.27
+Time Elapsed 00:00:11.26

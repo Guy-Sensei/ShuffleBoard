@@ -1,5 +1,5 @@
-﻿Build started 08/04/2014 5:48:43 PM.
-     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_Box2dDemo.vcxproj" on node 5 (Rebuild target(s)).
+﻿Build started 10/04/2014 4:54:09 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_Box2dDemo.vcxproj" on node 4 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /I..\..\Demos\OpenGL /I..\..\Glut /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D GLEW_STATIC /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\App_Box2dDemo\\" /Fd"obj\x32\Release\App_Box2dDemo\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Demos\Box2dDemo\Box2dDemo.cpp ..\..\Demos\Box2dDemo\main.cpp ..\..\Demos\Box2dDemo\Win32Box2dDemo.cpp
          Box2dDemo.cpp
@@ -21,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:11.91
+Time Elapsed 00:00:08.15

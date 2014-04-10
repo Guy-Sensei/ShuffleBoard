@@ -1,5 +1,5 @@
-﻿Build started 08/04/2014 5:47:52 PM.
-     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_GenericJointDemo.vcxproj" on node 3 (Rebuild target(s)).
+﻿Build started 10/04/2014 4:53:22 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_GenericJointDemo.vcxproj" on node 4 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /I..\..\Demos\OpenGL /I..\..\Glut /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D GLEW_STATIC /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\App_GenericJointDemo\\" /Fd"obj\x32\Release\App_GenericJointDemo\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Demos\GenericJointDemo\GenericJointDemo.cpp ..\..\Demos\GenericJointDemo\main.cpp ..\..\Demos\GenericJointDemo\Ragdoll.cpp ..\..\Demos\GenericJointDemo\Win32GenericJointDemo.cpp
          GenericJointDemo.cpp
@@ -25,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:10.02
+Time Elapsed 00:00:10.12

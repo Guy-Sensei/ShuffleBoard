@@ -1,0 +1,39 @@
+﻿Build started 10/04/2014 4:58:37 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\ConvexDecomposition.vcxproj" on node 5 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\Extras\ConvexDecomposition /I..\..\src /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Debug\ConvexDecomposition\\" /Fd"..\..\lib\ConvexDecomposition_vs2010_debug.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Extras\ConvexDecomposition\bestfit.cpp ..\..\Extras\ConvexDecomposition\bestfitobb.cpp ..\..\Extras\ConvexDecomposition\cd_hull.cpp ..\..\Extras\ConvexDecomposition\cd_wavefront.cpp ..\..\Extras\ConvexDecomposition\concavity.cpp ..\..\Extras\ConvexDecomposition\ConvexBuilder.cpp ..\..\Extras\ConvexDecomposition\ConvexDecomposition.cpp ..\..\Extras\ConvexDecomposition\fitsphere.cpp ..\..\Extras\ConvexDecomposition\float_math.cpp ..\..\Extras\ConvexDecomposition\meshvolume.cpp ..\..\Extras\ConvexDecomposition\planetri.cpp ..\..\Extras\ConvexDecomposition\raytri.cpp ..\..\Extras\ConvexDecomposition\splitplane.cpp ..\..\Extras\ConvexDecomposition\vlookup.cpp
+         bestfit.cpp
+         bestfitobb.cpp
+         cd_hull.cpp
+         cd_wavefront.cpp
+         concavity.cpp
+         ConvexBuilder.cpp
+         ConvexDecomposition.cpp
+         fitsphere.cpp
+         float_math.cpp
+         meshvolume.cpp
+         planetri.cpp
+         raytri.cpp
+         splitplane.cpp
+         vlookup.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\..\lib\ConvexDecomposition_vs2010_debug.lib" /NOLOGO /MACHINE:X86 obj\x32\Debug\ConvexDecomposition\bestfit.obj
+         obj\x32\Debug\ConvexDecomposition\bestfitobb.obj
+         obj\x32\Debug\ConvexDecomposition\cd_hull.obj
+         obj\x32\Debug\ConvexDecomposition\cd_wavefront.obj
+         obj\x32\Debug\ConvexDecomposition\concavity.obj
+         obj\x32\Debug\ConvexDecomposition\ConvexBuilder.obj
+         obj\x32\Debug\ConvexDecomposition\ConvexDecomposition.obj
+         obj\x32\Debug\ConvexDecomposition\fitsphere.obj
+         obj\x32\Debug\ConvexDecomposition\float_math.obj
+         obj\x32\Debug\ConvexDecomposition\meshvolume.obj
+         obj\x32\Debug\ConvexDecomposition\planetri.obj
+         obj\x32\Debug\ConvexDecomposition\raytri.obj
+         obj\x32\Debug\ConvexDecomposition\splitplane.obj
+         obj\x32\Debug\ConvexDecomposition\vlookup.obj
+         ConvexDecomposition.vcxproj -> C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\..\..\lib\ConvexDecomposition_vs2010_debug.lib
+     1>Done Building Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\ConvexDecomposition.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.21

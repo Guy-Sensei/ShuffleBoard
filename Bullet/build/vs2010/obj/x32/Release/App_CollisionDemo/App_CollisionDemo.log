@@ -1,4 +1,4 @@
-﻿Build started 08/04/2014 5:48:49 PM.
+﻿Build started 10/04/2014 4:54:12 PM.
      1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_CollisionDemo.vcxproj" on node 5 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /I..\..\Demos\OpenGL /I..\..\Glut /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D GLEW_STATIC /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\App_CollisionDemo\\" /Fd"obj\x32\Release\App_CollisionDemo\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Demos\CollisionDemo\CollisionDemo.cpp
@@ -15,4 +15,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.69
+Time Elapsed 00:00:06.58

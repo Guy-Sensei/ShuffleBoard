@@ -1,4 +1,4 @@
-﻿Build started 08/04/2014 5:48:02 PM.
+﻿Build started 10/04/2014 4:53:31 PM.
      1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_GyroscopicDemo.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /I..\..\Demos\OpenGL /I..\..\Glut /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D GLEW_STATIC /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\App_GyroscopicDemo\\" /Fd"obj\x32\Release\App_GyroscopicDemo\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Demos\GyroscopicDemo\GyroscopicDemo.cpp ..\..\Demos\GyroscopicDemo\main.cpp ..\..\Demos\GyroscopicDemo\Win32GyroscopicDemo.cpp
@@ -21,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:07.19
+Time Elapsed 00:00:06.66
