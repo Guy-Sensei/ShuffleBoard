@@ -1,102 +1,154 @@
 /*
-  Name: MeshEntityDemo
-  Date: 25/02/08
-  Description: Demonstrates managed mesh entities
+Name: MeshEntityDemo
+Date: 25/02/08
+Description: Demonstrates managed mesh entities
 */
 
 #include "..\Engine\Advanced2D.h"
+#include "MeshEntityDemo\GameManager.h"
+
 using namespace Advanced2D;
 
-//camera object
+GameManager* gm;
 Camera *camera;
+Vector3 cameraVec;
 Light *light;
+
+DWORD lastFrameTime = 0;
+DWORD deltaTime = 0;
+DWORD moveTime = 0;
+float dt;
+float previousTime;
+
+int Time()
+{
+	time_t int_time;
+	return time(&int_time);
+}
 
 #define MAX 10
 
 bool game_preload() 
 {
-    g_engine->setAppTitle("MESH ENTITY DEMO");
-    g_engine->setFullscreen(false);
-    g_engine->setScreenWidth(800);
-    g_engine->setScreenHeight(600);
-    g_engine->setColorDepth(32);    
-    return 1;
+	g_engine->setAppTitle("MESH ENTITY DEMO");
+	g_engine->setFullscreen(false);
+	g_engine->setScreenWidth(800);
+	g_engine->setScreenHeight(600);
+	g_engine->setColorDepth(32);    
+	return 1;
 }
 
 bool game_init(HWND) 
 {
-    //set the camera and perspective
-    camera = new Camera();
-    camera->setPosition(0.0f, 2.0f, 50.0f);
-    camera->setTarget(0.0f, 0.0f, 0.0f);
-    camera->Update();
+	gm = new GameManager();
+	gm->InitializePhysics();
 
-    //create a directional light
-    D3DXVECTOR3 pos(0.0f,0.0f,0.0f);
-    D3DXVECTOR3 dir(1.0f,0.0f,0.0f);
-    light = new Light(0, D3DLIGHT_DIRECTIONAL, pos, dir, 100);
-    light->setColor(D3DXCOLOR(1,0,0,0));
+	//set the camera and perspective
+	camera = new Camera();
+	camera->setPosition(0.0f, 2.0f, 50.0f);
+	camera->setTarget(0.0f, 0.0f, 0.0f);
+	camera->Update();
+	gm->SetCamera(camera);
+	
+	//create a directional light
+	D3DXVECTOR3 pos(0.0f,0.0f,0.0f);
+	D3DXVECTOR3 dir(1.0f,0.0f,0.0f);
+	light = new Light(0, D3DLIGHT_DIRECTIONAL, pos, dir, 100);
+	light->setColor(D3DXCOLOR(1,0,0,0));
 
-    g_engine->SetAmbient(D3DCOLOR_RGBA(0,0,0,0));
+	g_engine->SetAmbient(D3DCOLOR_RGBA(0,0,0,0));
 
-    //load meshes
-    Mesh *mesh = new Mesh();
-	mesh->Load("airplane 2.x");
-	mesh->SetPosition(0.0f,0.0f,0.0f);
-	g_engine->addEntity(mesh);
+	GameObject* disc;
+	gm->CreateGameObject(new btBoxShape(btVector3(1,50,30)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(40, -10.0f, 0.0f));
 
-    return 1;
+	disc = gm->CreateGameObject(new btBoxShape(btVector3(1, 3, 2)), 1.0, btVector3(1,1,1), btVector3(5, 10, 0));
+	disc->LoadMesh("airplane 2.x");
+
+	return 1;
 }
 
 void game_update() 
 {
-    //nothing to do!
+	if(lastFrameTime == 0)
+		lastFrameTime = timeGetTime();
+
+	deltaTime = timeGetTime() - lastFrameTime;
+	lastFrameTime = timeGetTime();
+
+
+	gm->Update(deltaTime);
+
+	if (gm->GetCamera())
+	{
+		camera->setPosition(camera->getPosition().x + cameraVec.getX(), camera->getPosition().y + cameraVec.getY(), camera->getPosition().z + cameraVec.getZ());
+		camera->setTarget(camera->getPosition().x, camera->getPosition().y, camera->getPosition().z - 1.0);
+		camera->Update();
+		cameraVec = Vector3(0.0, 0.0, 0.0);
+	}
+}
+
+void Render_Debug()
+{
+	gm->DebugRender();
 }
 
 void game_render3d()
 {
-    g_engine->ClearScene(D3DCOLOR_RGBA(0,0,60,0));
-    g_engine->SetIdentity();
+	g_engine->ClearScene(D3DCOLOR_RGBA(0,0,60,0));
+	g_engine->SetIdentity();
 }
 
 void game_keyRelease(int key) 
 { 
-    if (key == DIK_ESCAPE) g_engine->Close();
+	if (key == DIK_ESCAPE) g_engine->Close();
+
+	if (key == DIK_A)
+		cameraVec = Vector3(1.0, 0.0, 0.0);
+
+	if (key == DIK_D)
+		cameraVec = Vector3(-1.0, 0.0, 0.0);
+
+	if (key == DIK_W)
+		cameraVec = Vector3(0.0, 0.0, -1.0);
+
+	if (key == DIK_S)
+		cameraVec = Vector3(0.0, 0.0, 1.0);
+
 }
 
 void game_entityUpdate(Advanced2D::Entity* entity) 
 { 
-	static float transUnit = 0.05f;
-	static float maxClamp = 40.0f;
-    if (entity->getRenderType() == RENDER3D)
-    {
-        //type-cast Entity to a Mesh
-        Mesh* mesh = static_cast<Mesh*>(entity);
-		if(mesh)
-		{
-			//perform a simple rotation
-			mesh->Rotate(0,0.2f,0);
-			D3DXVECTOR3 pos = mesh->GetPosition();
-			pos.z += transUnit;
-			if(pos.z < maxClamp)
-				mesh->SetPosition(pos);
-		}
-    }
+	//static float transUnit = 0.05f;
+	//static float maxClamp = 40.0f;
+	//   if (entity->getRenderType() == RENDER3D)
+	//   {
+	//       //type-cast Entity to a Mesh
+	//       Mesh* mesh = static_cast<Mesh*>(entity);
+	//	if(mesh)
+	//	{
+	//		//perform a simple rotation
+	//		mesh->Rotate(0,0.2f,0);
+	//		D3DXVECTOR3 pos = mesh->GetPosition();
+	//		pos.z += transUnit;
+	//		if(pos.z < maxClamp)
+	//			mesh->SetPosition(pos);
+	//	}
+	//   }
 }
 
 void game_entityRender(Advanced2D::Entity* entity) 
 { 
-    //type-cast Entity to a Mesh
-    Mesh* mesh = (Mesh*)entity;
+	//type-cast Entity to a Mesh
+	Mesh* mesh = (Mesh*)entity;
 
-    //engine automatically renders each entity
-    //but we can respond to each render event here
+	//engine automatically renders each entity
+	//but we can respond to each render event here
 }
 
 void game_end() 
 {
-    delete camera;
-    delete light;
+	delete camera;
+	delete light;
 }
 
 void game_render2d() { }

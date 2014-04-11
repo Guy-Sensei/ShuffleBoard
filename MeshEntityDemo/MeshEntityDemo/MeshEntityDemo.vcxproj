@@ -88,6 +88,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="ShuffleBoardGame.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="AimState.h" />
     <ClInclude Include="DMotionState.h" />
     <ClInclude Include="EndOfThrowState.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="InGameState.h" />

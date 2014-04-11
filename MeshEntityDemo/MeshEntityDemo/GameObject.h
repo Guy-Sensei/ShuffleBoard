@@ -13,13 +13,13 @@ public:
 
 	// 2D Sprite
 	void LoadSprite(char *filename);
-	void SetSprite(Advanced2D::Sprite *sprite);
-	Advanced2D::Sprite* GetSprite();
+	void SetSprite(Advanced2D::Sprite *sprite) { m_sprite = sprite; }
+	Advanced2D::Sprite* GetSprite() { return m_sprite; }
 
 	// 3D Mesh
 	void LoadMesh(char *filename);
-	void SetMesh(Advanced2D::Mesh *mesh);
-	Advanced2D::Mesh* GetMesh();
+	void SetMesh(Advanced2D::Mesh *mesh) { m_mesh = mesh; }
+	Advanced2D::Mesh* GetMesh() { return m_mesh; }
 
 	void SetScale(double x, double y, double z);
 
