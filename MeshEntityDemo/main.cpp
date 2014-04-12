@@ -52,18 +52,33 @@ bool game_init(HWND)
 	
 	//create a directional light
 	D3DXVECTOR3 pos(0.0f,0.0f,0.0f);
-	D3DXVECTOR3 dir(1.0f,0.0f,0.0f);
+	D3DXVECTOR3 dir(1.0f,1.0f,1.0f);
 	light = new Light(0, D3DLIGHT_DIRECTIONAL, pos, dir, 100);
-	light->setColor(D3DXCOLOR(1,0,0,0));
+	light->setColor(D3DXCOLOR(1,1,1,1));
 
-	g_engine->SetAmbient(D3DCOLOR_RGBA(0,0,0,0));
+	g_engine->SetAmbient(D3DCOLOR_RGBA(255,255,255,0));
+
+	GameObject* ground;	
+	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,50,30)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(40, -10.0f, 0.0f));
+	//ground->CreateMeshFromShape();
 
 	GameObject* disc;
-	gm->CreateGameObject(new btBoxShape(btVector3(1,50,30)), 0, btVector3(0.2f, 0.6f, 0.6f), btVector3(40, -10.0f, 0.0f));
+	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(1, 10, 0));
+	disc->CreateMeshFromShape();
+	disc->GetRigidBody()->setAngularFactor(20);//->applyTorque(btVector3(0,1,0));
 
-	disc = gm->CreateGameObject(new btBoxShape(btVector3(1, 3, 2)), 1.0, btVector3(1,1,1), btVector3(5, 10, 0));
-	disc->LoadMesh("airplane 2.x");
+	GameObject* disc2;
+	disc2 = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(5, 10, 0));
+	disc2->CreateMeshFromShape();
 
+	GameObject* disc3;
+	disc3 = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(9, 10, 0));
+	disc3->CreateMeshFromShape();
+
+	/*GameObject* airplane;
+	airplane = gm->CreateGameObject(new btBoxShape(btVector3(1, 3, 2)), 1.0, btVector3(1,1,1), btVector3(5, 10, 0));
+	airplane->LoadMesh("airplane 2.x");
+*/
 	return 1;
 }
 

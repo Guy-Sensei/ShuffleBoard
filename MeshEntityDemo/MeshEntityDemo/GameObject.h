@@ -2,6 +2,7 @@
 #define _GAMEOBJECT_H_
 
 #include "btBulletDynamicsCommon.h"
+#include "btBulletCollisionCommon.h"
 #include "DMotionState.h"
 #include "..\..\Engine\Advanced2D.h"
 
@@ -20,6 +21,8 @@ public:
 	void LoadMesh(char *filename);
 	void SetMesh(Advanced2D::Mesh *mesh) { m_mesh = mesh; }
 	Advanced2D::Mesh* GetMesh() { return m_mesh; }
+	void CreateMeshFromShape();
+
 
 	void SetScale(double x, double y, double z);
 

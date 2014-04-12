@@ -111,6 +111,10 @@ namespace Advanced2D {
 		D3DXCreateBox(g_engine->getDevice(), (float)width, (float)height, (float)depth, &mesh, NULL);
 	}
 	
+	void Mesh::CreateCylinder(double radius1, double radius2, double length, int slices, int stacks)
+	{
+		D3DXCreateCylinder(g_engine->getDevice(), (float)radius1, (float)radius2, (float)length, slices, stacks, &mesh, NULL);
+	}
 
 //****updated in chapter 7
 	void Mesh::draw()

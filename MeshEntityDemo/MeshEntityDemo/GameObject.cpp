@@ -1,6 +1,11 @@
 #include "GameObject.h"
 
-GameObject::GameObject(btCollisionShape* pShape, float mass, const btVector3 &color, const btVector3 &initialPosition, const btQuaternion &initialRotation) {
+GameObject::GameObject(btCollisionShape* pShape, 
+					   float mass, 
+					   const btVector3 &color, 
+					   const btVector3 &initialPosition, 
+					   const btQuaternion &initialRotation) 
+{
 	m_pShape = pShape;
 	m_color = color;
 
@@ -34,6 +39,46 @@ void GameObject::LoadMesh(char *filename)
 	btVector3 v = transform.getOrigin();
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
 
+	g_engine->addEntity(m_mesh);
+}
+
+void GameObject::CreateMeshFromShape()
+{
+	m_mesh = new Advanced2D::Mesh();
+	btTransform transform = m_pBody->getWorldTransform();
+	btVector3 v = transform.getOrigin();
+	float halfWidth;
+	float halfHeight;
+	float halfDepth;
+	btVector3 halfSize;
+	
+	switch(m_pShape->getShapeType())
+	{
+	case CYLINDER_SHAPE_PROXYTYPE:
+		//const btCylinderShape* cyl = static_cast<const btCylinderShape*>(m_pShape);
+		halfSize = static_cast<const btCylinderShape*>(m_pShape)->getHalfExtentsWithMargin();
+
+		halfWidth = halfSize.x();
+		halfHeight = halfSize.y();
+		halfDepth = halfSize.z();
+
+		m_mesh->CreateCylinder(halfHeight, halfHeight, halfWidth*2);
+		break;
+
+	case BOX_SHAPE_PROXYTYPE:
+		//const btBoxShape* box = static_cast<const btBoxShape*>(m_pShape);
+		halfSize = static_cast<const btBoxShape*>(m_pShape)->getHalfExtentsWithMargin();
+
+		halfWidth = halfSize.x();
+		halfHeight = halfSize.y();
+		halfDepth = halfSize.z();
+
+		m_mesh->CreateCube(halfHeight*2, halfWidth*2, halfDepth*2);
+		break;
+	}
+
+	m_mesh->setObjectType(Advanced2D::RENDER3D);
+	m_mesh->SetPosition(v.x(), v.y(), v.z());
 	g_engine->addEntity(m_mesh);
 }
 
