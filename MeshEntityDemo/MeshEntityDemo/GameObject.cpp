@@ -79,6 +79,7 @@ void GameObject::CreateMeshFromShape()
 
 	m_mesh->setObjectType(Advanced2D::RENDER3D);
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
+	
 	g_engine->addEntity(m_mesh);
 }
 

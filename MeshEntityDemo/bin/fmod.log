@@ -18,6 +18,7 @@ FMOD: Thread::initThread             : - Stacksize 0.  Stack pointer 00000000 : 
 FMOD: Thread::callback               : * FMOD (WASAPI) feeder thread started
 FMOD: Thread::initThread             : done.
 FMOD: Thread::initThread             : Initializing FMOD mixer thread.  priority 2
+FMOD: OutputWASAPI::feederUpdate     : WASAPI feeder thread set to 'Audio' characteristic
 FMOD: Thread::initThread             : - Stacksize 0.  Stack pointer 00000000 : usesemaphore = 1 : sleeptime = 0
 FMOD: Thread::callback               : * FMOD mixer thread started
 FMOD: Thread::initThread             : done.
@@ -30,7 +31,6 @@ FMOD: Thread::callback               : * FMOD stream thread started
 FMOD: Thread::initThread             : done.
 FMOD: SystemI::init                  : done
 
-FMOD: OutputWASAPI::feederUpdate     : WASAPI feeder thread set to 'Audio' characteristic
 FMOD: SystemI::close                 : 
 FMOD: SystemI::close                 : Stop all sounds
 FMOD: Thread::callback               : * FMOD stream thread finished
