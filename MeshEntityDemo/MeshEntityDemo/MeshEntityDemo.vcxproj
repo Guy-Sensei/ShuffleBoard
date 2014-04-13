@@ -42,15 +42,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IncludePath>..\..\FMODex\inc;..\..\Bullet\src;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\FMODex\lib;..\..\Bullet\lib;C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Programmers API Win32\api\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\FMODex\inc;..\..\Bullet\src;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath);C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include</IncludePath>
+    <LibraryPath>C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x64;..\..\FMODex\lib;..\..\Bullet\lib;C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Programmers API Win32\api\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)_debug</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)..\bin\</OutDir>
-    <IncludePath>..\..\FMODex\inc;..\..\Bullet\src;C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Programmers API Win32\api\inc;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\FMODex\lib;..\..\Bullet\lib;C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Programmers API Win32\api\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\FMODex\inc;..\..\Bullet\src;C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Programmers API Win32\api\inc;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath);C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include</IncludePath>
+    <LibraryPath>C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x64;..\..\FMODex\lib;..\..\Bullet\lib;C:\Program Files %28x86%29\FMOD SoundSystem\FMOD Programmers API Win32\api\lib;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

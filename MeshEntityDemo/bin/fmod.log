@@ -7,8 +7,9 @@ FMOD: SystemI::close                 : done.
 
 FMOD: OutputWASAPI::enumerate        : Enumerating...
 FMOD: OutputWASAPI::enumerate        : Initialise COM library.
-FMOD: OutputWASAPI::enumerate        : Found Driver: "Speakers (Realtek High Definition Audio)".
-FMOD: OutputWASAPI::enumerate        : Found Driver: "Microphone (Realtek High Definition Audio)".
+FMOD: OutputWASAPI::enumerate        : Found Driver: "Speakers (Conexant High Definition Audio)".
+FMOD: OutputWASAPI::enumerate        : Found Driver: "Microphone (Conexant High Definition Audio)".
+FMOD: OutputWASAPI::enumerate        : Found Driver: "WaveOut Mix (Conexant High Definition Audio)".
 FMOD: OutputWASAPI::enumerate        : Done.
 FMOD: OutputWASAPI::initEx           : Initialising...
 FMOD: OutputWASAPI::initEx           : Done.
@@ -17,6 +18,7 @@ FMOD: Thread::initThread             : Initializing FMOD (WASAPI) feeder thread.
 FMOD: Thread::initThread             : - Stacksize 0.  Stack pointer 00000000 : usesemaphore = 0 : sleeptime = 0
 FMOD: Thread::callback               : * FMOD (WASAPI) feeder thread started
 FMOD: Thread::initThread             : done.
+FMOD: OutputWASAPI::feederUpdate     : WASAPI feeder thread set to 'Audio' characteristic
 FMOD: Thread::initThread             : Initializing FMOD mixer thread.  priority 2
 FMOD: Thread::initThread             : - Stacksize 0.  Stack pointer 00000000 : usesemaphore = 1 : sleeptime = 0
 FMOD: Thread::callback               : * FMOD mixer thread started
