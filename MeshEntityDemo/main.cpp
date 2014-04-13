@@ -12,7 +12,8 @@ using namespace Advanced2D;
 GameManager* gm;
 Camera *camera;
 Vector3 cameraVec;
-Light *light;
+Light *light1;
+Light *light2;
 
 DWORD lastFrameTime = 0;
 DWORD deltaTime = 0;
@@ -23,7 +24,7 @@ float previousTime;
 D3DCOLORVALUE colorP1;
 D3DCOLORVALUE colorP2;
 btVector3 startPosition;
-
+btVector3 secondPosition;
 
 int Time()
 {
@@ -35,16 +36,25 @@ int Time()
 
 void CreateDisc(D3DCOLORVALUE color)
 {
-	D3DCOLORVALUE discColor;
-	discColor.r = 255;
-	discColor.g = 100;
-	discColor.b = 255;
-	discColor.a = 0;
+	D3DCOLORVALUE ambColor;
+	ambColor.r = color.r * 0.3;
+	ambColor.g = color.g * 0.3;
+	ambColor.b = color.b * 0.3;
+	ambColor.a = 0;
+
+	D3DCOLORVALUE diffColor;
+	diffColor.r = color.r*1;
+	diffColor.g = color.g*1;
+	diffColor.b = color.b*1;
+	diffColor.a = 0;
 
 	GameObject* disc;
-	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), startPosition);
+	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), startPosition, btQuaternion((90), (1), (0), (0)));
 	disc->CreateMeshFromShape();
-	disc->GetMesh()->SetColour(discColor, Mesh::MT_DIFFUSE);
+	disc->GetMesh()->SetColour(diffColor, Mesh::MT_DIFFUSE);
+	disc->GetMesh()->SetColour(ambColor, Mesh::MT_AMBIENT);
+	disc->GetMesh()->SetRotation(0, 90, 0);
+	
 	//disc->GetRigidBody()->setAngularFactor(20);
 }
 
@@ -65,8 +75,13 @@ bool game_init(HWND)
 
 	//set the camera and perspective
 	camera = new Camera();
+<<<<<<< HEAD
 	camera->setPosition(0.0f, 0.0f, 0.0f);
 	camera->setTarget(0.0f, 0.0f, 1.0f);
+=======
+	camera->setPosition(0.0f, 0.0f, 70.0f);
+	camera->setTarget(0.0f, 0.0f, 0.0f);
+>>>>>>> 41238238ec77ce55693e9b32255f977ceb9b4d00
 	camera->Update();
 
 	gm->SetCamera(camera);
@@ -74,38 +89,47 @@ bool game_init(HWND)
 	//create a directional light
 	D3DXVECTOR3 pos(10.0f,10.0f,0.0f);
 	D3DXVECTOR3 dir(1.0f,1.0f,1.0f);
-	light = new Light(0, D3DLIGHT_DIRECTIONAL, pos, dir, 100);
-	light->setColor(D3DXCOLOR(1,1,1,1));
-	light->Show();
+	light1 = new Light(0, D3DLIGHT_DIRECTIONAL, pos, dir, 100);
+	light1->setColor(D3DXCOLOR(1,1,1,1));
+	light1->Show();
 	g_engine->SetAmbient(D3DCOLOR_RGBA(255,255,255,0));
 
+	D3DXVECTOR3 pos2(1.0f,10.0f,0.0f);
+	D3DXVECTOR3 dir2(0.0f,-10.0f,0.0f);
+	light2 = new Light(0, D3DLIGHT_SPOT, pos2, dir2, 100);
+	light2->setColor(D3DXCOLOR(1,1,1,1));
+	//light2->Show();
+	//g_engine->SetAmbient(D3DCOLOR_RGBA(255,255,255,0));
+
+
 	GameObject* ground;	
-	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,50,30)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(40, -10.0f, 0.0f));
+	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,5,50)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(0, -10.0f, 0.0f));
 	ground->CreateMeshFromShape();
 
 	D3DCOLORVALUE groundColor;
-	groundColor.r = 100;
-	groundColor.g = 100;
-	groundColor.b = 100;
+	groundColor.r = 0.5;
+	groundColor.g = 0.5;
+	groundColor.b = 0.5;
 	groundColor.a = 0;
 	ground->GetMesh()->SetColour(groundColor, Mesh::MT_DIFFUSE);
 	ground->GetMesh()->SetColour(groundColor, Mesh::MT_AMBIENT);
 	ground->GetMesh()->SetColour(groundColor, Mesh::MT_SPECULAR);
 
-	colorP1.r = 255;
-	colorP1.g = 100;
-	colorP1.b = 100;
+	colorP1.r = 1;
+	colorP1.g = 0;
+	colorP1.b = 1;
 	colorP1.a = 0;
 
-	colorP2.r = 255;
-	colorP2.g = 100;
-	colorP2.b = 100;
+	colorP2.r = 0;
+	colorP2.g = 1;
+	colorP2.b = 0;
 	colorP2.a = 0;
 
 	startPosition = btVector3(1, 10, 0);
+	secondPosition = btVector3(1.5, 12, 0);
 
 	CreateDisc(colorP1);
-
+	CreateDisc(colorP2);
 	return 1;
 }
 
@@ -131,7 +155,7 @@ void game_update()
 
 void Render_Debug()
 {
-	gm->DebugRender();
+	//gm->DebugRender();
 }
 
 void game_render3d()
@@ -190,7 +214,8 @@ void game_entityRender(Advanced2D::Entity* entity)
 void game_end() 
 {
 	delete camera;
-	delete light;
+	delete light1;
+	delete light2;
 }
 
 void game_render2d() { }
