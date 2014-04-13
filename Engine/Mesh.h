@@ -29,7 +29,16 @@ namespace Advanced2D {
 		D3DXMATRIX matScale;
 	
 	public:
-		Mesh(void);
+	enum MaterialType
+	{
+		MT_AMBIENT = 0,
+		MT_DIFFUSE,
+		MT_SPECULAR,
+		MT_EMISSIVE,
+		MT_MAX
+	};
+	
+	Mesh(void);
 		~Mesh(void);
 		void move();
 		void animate() { }
@@ -97,7 +106,8 @@ namespace Advanced2D {
 	
 		void SetScaleZ(double z) { scale.z = (float)z; }
 		double GetScaleZ() { return scale.z; }
-		
+		void SetColour(D3DCOLORVALUE colour, MaterialType matType);
+	
 	};
 
 };

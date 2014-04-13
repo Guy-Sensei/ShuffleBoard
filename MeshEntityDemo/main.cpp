@@ -48,6 +48,7 @@ bool game_init(HWND)
 	camera->setPosition(0.0f, 2.0f, 50.0f);
 	camera->setTarget(0.0f, 0.0f, 0.0f);
 	camera->Update();
+	
 	gm->SetCamera(camera);
 	
 	//create a directional light
@@ -60,7 +61,7 @@ bool game_init(HWND)
 
 	GameObject* ground;	
 	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,50,30)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(40, -10.0f, 0.0f));
-	//ground->CreateMeshFromShape();
+	ground->CreateMeshFromShape();
 
 	GameObject* disc;
 	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(1, 10, 0));
