@@ -45,6 +45,5 @@ protected:
 	btRigidBody*    m_pBody;
 	DMotionState*  m_pMotionState;
 	btVector3      m_color;
-	
 };
 #endif
