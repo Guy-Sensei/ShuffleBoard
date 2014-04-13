@@ -287,6 +287,7 @@ namespace Advanced2D
 			//render 2D entities 
 			if (!p_pauseMode) Draw2DEntities();
 
+			Render_Debug();
 
 			//done rendering
 			Render2D_Stop();

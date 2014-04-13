@@ -42,7 +42,8 @@ namespace Advanced2D {
 	
 		void CreateSphere(double radius = 0.1f, int slices = 10, int stacks = 10);
 		void CreateCube(double width = 1.0f, double height = 1.0f, double depth = 1.0f);
-	
+		void CreateCylinder(double radius1, double radius2, double length, int slices = 10, int stacks = 10);
+
 		void Draw();
 		void Transform();
 		

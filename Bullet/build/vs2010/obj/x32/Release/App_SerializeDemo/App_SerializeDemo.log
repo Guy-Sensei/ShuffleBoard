@@ -1,5 +1,5 @@
-﻿Build started 08/04/2014 5:48:33 PM.
-     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_SerializeDemo.vcxproj" on node 5 (Rebuild target(s)).
+﻿Build started 10/04/2014 4:53:59 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\App_SerializeDemo.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\Extras\Serialize\BulletFileLoader /I..\..\Extras\Serialize\BulletWorldImporter /I..\..\src /I..\..\Demos\OpenGL /I..\..\Glut /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D GLEW_STATIC /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\App_SerializeDemo\\" /Fd"obj\x32\Release\App_SerializeDemo\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Demos\SerializeDemo\main.cpp ..\..\Demos\SerializeDemo\SerializeDemo.cpp ..\..\Demos\SerializeDemo\Win32SerializeDemo.cpp
          main.cpp
@@ -21,4 +21,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:09.32
+Time Elapsed 00:00:10.07

@@ -50,6 +50,8 @@ public:
 	void setTarget(D3DXVECTOR3 value) { p_target = value; }
 	void setTarget(float x, float y, float z) { p_target.x = x; p_target.y = y; p_target.z = z; }
 
+	D3DXMATRIX getProjectionMatrix() { return p_matrixProj; }
+	D3DXMATRIX getViewMatrix() { return p_matrixView; }
 
 };
 };

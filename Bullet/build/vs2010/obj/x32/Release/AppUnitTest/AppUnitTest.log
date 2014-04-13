@@ -1,4 +1,4 @@
-﻿Build started 08/04/2014 5:49:01 PM.
+﻿Build started 10/04/2014 4:54:24 PM.
      1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\AppUnitTest.vcxproj" on node 2 (Rebuild target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\src /I..\..\Test\Source /I..\..\Test\Source\Tests /nologo /W3 /WX- /Ox /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /GF /Gm- /MT /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Release\AppUnitTest\\" /Fd"obj\x32\Release\AppUnitTest\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Test\Source\main.cpp ..\..\Test\Source\TestList.cpp ..\..\Test\Source\Utils.cpp ..\..\Test\Source\Tests\Test_3x3getRot.cpp ..\..\Test\Source\Tests\Test_3x3mulM.cpp ..\..\Test\Source\Tests\Test_3x3mulM1M2.cpp ..\..\Test\Source\Tests\Test_3x3mulMV.cpp ..\..\Test\Source\Tests\Test_3x3mulVM.cpp ..\..\Test\Source\Tests\Test_3x3setRot.cpp ..\..\Test\Source\Tests\Test_3x3timesTranspose.cpp ..\..\Test\Source\Tests\Test_3x3transpose.cpp ..\..\Test\Source\Tests\Test_3x3transposeTimes.cpp ..\..\Test\Source\Tests\Test_btDbvt.cpp ..\..\Test\Source\Tests\Test_dot3.cpp ..\..\Test\Source\Tests\Test_maxdot.cpp ..\..\Test\Source\Tests\Test_mindot.cpp ..\..\Test\Source\Tests\Test_qtdot.cpp ..\..\Test\Source\Tests\Test_qtmul.cpp ..\..\Test\Source\Tests\Test_qtmulQV3.cpp ..\..\Test\Source\Tests\Test_qtmulV3Q.cpp ..\..\Test\Source\Tests\Test_qtnorm.cpp ..\..\Test\Source\Tests\Test_quat_aos_neon.cpp ..\..\Test\Source\Tests\Test_v3cross.cpp ..\..\Test\Source\Tests\Test_v3div.cpp ..\..\Test\Source\Tests\Test_v3dot.cpp ..\..\Test\Source\Tests\Test_v3interp.cpp ..\..\Test\Source\Tests\Test_v3lerp.cpp ..\..\Test\Source\Tests\Test_v3norm.cpp ..\..\Test\Source\Tests\Test_v3rotate.cpp ..\..\Test\Source\Tests\Test_v3sdiv.cpp ..\..\Test\Source\Tests\Test_v3skew.cpp ..\..\Test\Source\Tests\Test_v3triple.cpp
@@ -73,4 +73,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.79
+Time Elapsed 00:00:04.42

@@ -1,0 +1,19 @@
+﻿Build started 10/04/2014 4:58:37 PM.
+     1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\HACD.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\Extras\HACD /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _HAS_EXCEPTIONS=0 /D _MBCS /Gm- /RTC1 /MTd /GS /Gy /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"obj\x32\Debug\HACD\\" /Fd"..\..\lib\HACD_vs2010_debug.pdb" /Gd /TP /analyze- /errorReport:prompt /MP ..\..\Extras\HACD\hacdGraph.cpp ..\..\Extras\HACD\hacdHACD.cpp ..\..\Extras\HACD\hacdICHull.cpp ..\..\Extras\HACD\hacdManifoldMesh.cpp
+         hacdGraph.cpp
+         hacdHACD.cpp
+         hacdICHull.cpp
+         hacdManifoldMesh.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\..\lib\HACD_vs2010_debug.lib" /NOLOGO /MACHINE:X86 obj\x32\Debug\HACD\hacdGraph.obj
+         obj\x32\Debug\HACD\hacdHACD.obj
+         obj\x32\Debug\HACD\hacdICHull.obj
+         obj\x32\Debug\HACD\hacdManifoldMesh.obj
+         HACD.vcxproj -> C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\..\..\lib\HACD_vs2010_debug.lib
+     1>Done Building Project "C:\Users\Jean-G\Documents\ShuffleBoard\Bullet\build\vs2010\HACD.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:15.19

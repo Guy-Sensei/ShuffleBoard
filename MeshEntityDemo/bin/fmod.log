@@ -19,8 +19,8 @@ FMOD: Thread::callback               : * FMOD (WASAPI) feeder thread started
 FMOD: Thread::initThread             : done.
 FMOD: Thread::initThread             : Initializing FMOD mixer thread.  priority 2
 FMOD: Thread::initThread             : - Stacksize 0.  Stack pointer 00000000 : usesemaphore = 1 : sleeptime = 0
-FMOD: OutputWASAPI::feederUpdate     : WASAPI feeder thread set to 'Audio' characteristic
 FMOD: Thread::callback               : * FMOD mixer thread started
+FMOD: OutputWASAPI::feederUpdate     : WASAPI feeder thread set to 'Audio' characteristic
 FMOD: Thread::initThread             : done.
 FMOD: SystemI::init                  : Set up emulated output
 FMOD: SystemI::init                  : create the channel pool

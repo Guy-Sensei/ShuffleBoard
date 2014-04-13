@@ -57,6 +57,8 @@ extern void game_end();
 extern void game_render3d();
 extern void game_render2d();
 
+extern void Render_Debug();
+
 extern void game_keyPress(int);
 extern void game_keyRelease(int);
 extern void game_mouseButton(int);
