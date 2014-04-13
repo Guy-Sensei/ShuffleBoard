@@ -1,24 +1,39 @@
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\vc120.pdb
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\vc120.idb
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\audio.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\camera.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\entity.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\input.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\light.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\mesh.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\particleemitter.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\sprite.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\texture.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\timer.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\vector3.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\video.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\winmain.obj
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\lib\debug\advanced2d.lib
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\..\lib\debug\advanced2d.lib
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.tlog\cl.command.1.tlog
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.tlog\cl.read.1.tlog
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.tlog\cl.write.1.tlog
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.tlog\lib-link.read.1.tlog
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.tlog\lib-link.write.1.tlog
-c:\users\jean-g\google drive\school\semester 4\game2002\mesh demo post class\engine\advanced2d\debug\advanced2d.tlog\lib.command.1.tlog
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\ADVANCED2D.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\AUDIO.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\CAMERA.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\ENTITY.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\INPUT.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\LIGHT.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\MESH.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\PARTICLEEMITTER.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\SPRITE.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\TEXTURE.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\TIMER.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\VECTOR3.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\VIDEO.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\WINMAIN.OBJ
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\ADVANCED2D\DEBUG\VC110.PDB
+C:\USERS\JEAN-G\DOCUMENTS\SHUFFLEBOARD\ENGINE\LIB\DEBUG\ADVANCED2D.LIB
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Advanced2D.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Audio.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Camera.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Entity.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Input.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Light.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Mesh.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\ParticleEmitter.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Sprite.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Texture.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Timer.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Vector3.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Video.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\winmain.obj
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\cl.command.1.tlog
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\CL.read.1.tlog
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\CL.write.1.tlog
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Lib-link.read.1.tlog
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\Lib-link.write.1.tlog
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\lib.command.1.tlog
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\vc110.idb
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\Debug\vc110.pdb
+C:\Users\Jean-G\Documents\ShuffleBoard\Engine\Advanced2D\..\lib\debug\Advanced2D.lib
