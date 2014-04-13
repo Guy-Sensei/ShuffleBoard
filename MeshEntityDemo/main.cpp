@@ -20,6 +20,11 @@ DWORD moveTime = 0;
 float dt;
 float previousTime;
 
+D3DCOLORVALUE colorP1;
+D3DCOLORVALUE colorP2;
+btVector3 startPosition;
+
+
 int Time()
 {
 	time_t int_time;
@@ -27,6 +32,21 @@ int Time()
 }
 
 #define MAX 10
+
+void CreateDisc(D3DCOLORVALUE color)
+{
+	D3DCOLORVALUE discColor;
+	discColor.r = 255;
+	discColor.g = 100;
+	discColor.b = 255;
+	discColor.a = 0;
+
+	GameObject* disc;
+	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), startPosition);
+	disc->CreateMeshFromShape();
+	disc->GetMesh()->SetColour(discColor, Mesh::MT_DIFFUSE);
+	//disc->GetRigidBody()->setAngularFactor(20);
+}
 
 bool game_preload() 
 {
@@ -48,38 +68,44 @@ bool game_init(HWND)
 	camera->setPosition(0.0f, 2.0f, 50.0f);
 	camera->setTarget(0.0f, 0.0f, 0.0f);
 	camera->Update();
-	
+
 	gm->SetCamera(camera);
-	
+
 	//create a directional light
-	D3DXVECTOR3 pos(0.0f,0.0f,0.0f);
+	D3DXVECTOR3 pos(10.0f,10.0f,0.0f);
 	D3DXVECTOR3 dir(1.0f,1.0f,1.0f);
 	light = new Light(0, D3DLIGHT_DIRECTIONAL, pos, dir, 100);
 	light->setColor(D3DXCOLOR(1,1,1,1));
-
+	light->Show();
 	g_engine->SetAmbient(D3DCOLOR_RGBA(255,255,255,0));
 
 	GameObject* ground;	
 	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,50,30)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(40, -10.0f, 0.0f));
 	ground->CreateMeshFromShape();
 
-	GameObject* disc;
-	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(1, 10, 0));
-	disc->CreateMeshFromShape();
-	disc->GetRigidBody()->setAngularFactor(20);//->applyTorque(btVector3(0,1,0));
+	D3DCOLORVALUE groundColor;
+	groundColor.r = 100;
+	groundColor.g = 100;
+	groundColor.b = 100;
+	groundColor.a = 0;
+	ground->GetMesh()->SetColour(groundColor, Mesh::MT_DIFFUSE);
+	ground->GetMesh()->SetColour(groundColor, Mesh::MT_AMBIENT);
+	ground->GetMesh()->SetColour(groundColor, Mesh::MT_SPECULAR);
 
-	GameObject* disc2;
-	disc2 = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(5, 10, 0));
-	disc2->CreateMeshFromShape();
+	colorP1.r = 255;
+	colorP1.g = 100;
+	colorP1.b = 100;
+	colorP1.a = 0;
 
-	GameObject* disc3;
-	disc3 = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), btVector3(9, 10, 0));
-	disc3->CreateMeshFromShape();
+	colorP2.r = 255;
+	colorP2.g = 100;
+	colorP2.b = 100;
+	colorP2.a = 0;
 
-	/*GameObject* airplane;
-	airplane = gm->CreateGameObject(new btBoxShape(btVector3(1, 3, 2)), 1.0, btVector3(1,1,1), btVector3(5, 10, 0));
-	airplane->LoadMesh("airplane 2.x");
-*/
+	startPosition = btVector3(1, 10, 0);
+
+	CreateDisc(colorP1);
+
 	return 1;
 }
 

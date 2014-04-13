@@ -1,22 +1,13 @@
-﻿Build started 13/04/2014 1:54:59 PM.
+﻿Build started 13/04/2014 3:19:44 PM.
      1>Project "C:\Users\Jean-G\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\MeshEntityDemo.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp GameManager.cpp GameObject.cpp Rock.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp
          main.cpp
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(26): warning C4244: 'return' : conversion from 'time_t' to 'int', possible loss of data
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(67): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(72): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(76): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(95): warning C4244: 'argument' : conversion from 'DWORD' to 'float', possible loss of data
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(99): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(100): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         Generating Code...
-         Compiling...
-         Rock.cpp
-         GameObject.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         GameManager.cpp
+     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(31): warning C4244: 'return' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(45): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
+     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(121): warning C4244: 'argument' : conversion from 'DWORD' to 'float', possible loss of data
+     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(125): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\jean-g\documents\shuffleboard\meshentitydemo\main.cpp(126): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Jean-G\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Bullet\lib fmodexL_vc.lib BulletCollision_vs2010_debug.lib BulletDynamics_vs2010_debug.lib LinearMath_vs2010_debug.lib ..\..\Engine\lib\debug\Advanced2D.lib d3d9.lib d3dx9.lib dinput8.lib dxguid.lib winmm.lib xinput.lib Strmiids.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Jean-G\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Jean-G\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.lib" /MACHINE:X86 Debug\main.obj
          Debug\GameManager.obj
@@ -28,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:01:01.88
+Time Elapsed 00:00:23.51

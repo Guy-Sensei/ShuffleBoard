@@ -100,7 +100,6 @@ namespace Advanced2D {
 		return true;
 	}
 
-
 	void Mesh::CreateSphere(double radius, int slices, int stacks)
 	{
 		D3DXCreateSphere(g_engine->getDevice(), radius, slices, stacks, &mesh, NULL);
@@ -126,23 +125,23 @@ namespace Advanced2D {
 	}
 
 	void Mesh::SetColour(D3DCOLORVALUE colour, MaterialType matType)
-{
-	switch(matType)
 	{
-	case MT_AMBIENT:
-		materials[0].Ambient = colour;
-		break;
-	case MT_DIFFUSE:
-		materials[0].Diffuse = colour;
-		break;
-	case MT_SPECULAR:
-		materials[0].Specular = colour;
-		break;
-	case MT_EMISSIVE:
-		materials[0].Emissive = colour;
-		break;
+		switch(matType)
+		{
+		case MT_AMBIENT:
+			materials[0].Ambient = colour;
+			break;
+		case MT_DIFFUSE:
+			materials[0].Diffuse = colour;
+			break;
+		case MT_SPECULAR:
+			materials[0].Specular = colour;
+			break;
+		case MT_EMISSIVE:
+			materials[0].Emissive = colour;
+			break;
+		}
 	}
-}
 
 	//****updated in chapter 7
 	void Mesh::draw()
@@ -159,7 +158,7 @@ namespace Advanced2D {
 				// Set the material and texture for this subset
 				g_engine->getDevice()->SetMaterial( &materials[i] );
 
-				if (textures[i]) 
+				if (textures != 0) 
 				{
 					if (textures[i]->GetType() == D3DRTYPE_TEXTURE) 
 					{
