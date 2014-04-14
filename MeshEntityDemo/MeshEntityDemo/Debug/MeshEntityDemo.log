@@ -1,4 +1,4 @@
-﻿Build started 14/04/2014 10:15:22 AM.
+﻿Build started 14/04/2014 12:44:30 PM.
      1>Project "C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\MeshEntityDemo.vcxproj" on node 2 (Build target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>ClCompile:
@@ -10,8 +10,10 @@
      1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(58): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(68): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
      1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(97): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(185): warning C4244: 'argument' : conversion from 'DWORD' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(189): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(191): warning C4244: 'argument' : conversion from 'DWORD' to 'float', possible loss of data
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(195): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(290): warning C4553: '==' : operator has no effect; did you intend '='?
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(295): warning C4553: '==' : operator has no effect; did you intend '='?
        Link:
          C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Bullet\lib fmodexL_vc.lib BulletCollision_vs2010_debug.lib BulletDynamics_vs2010_debug.lib LinearMath_vs2010_debug.lib ..\..\Engine\lib\debug\Advanced2D.lib d3d9.lib d3dx9.lib dinput8.lib dxguid.lib winmm.lib xinput.lib Strmiids.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.lib" /MACHINE:X86 Debug\main.obj
          Debug\GameManager.obj
@@ -23,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.71
+Time Elapsed 00:00:06.30

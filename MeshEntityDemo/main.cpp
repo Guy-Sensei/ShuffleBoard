@@ -91,12 +91,14 @@ bool game_init(HWND)
 
 	//set the camera and perspective
 	camera = new Camera();
-	degree = 0;
+	degree = -90;
 	theta = degree*3.1415/180;
-	camera->setPosition(0.0f, 0.0f, 70.0f);
-	camera->setTarget(sin(theta), 0.0f, cos(theta));
-
+	camera->setPosition(0.0f, 0.0f, 80.0f);
+	camera->setTarget(cos(theta), 0.0f, sin(theta)+70);
 	camera->Update();
+
+	round_state = 1;
+	playerstate = PlayerState::P1;
 
 	gm->SetCamera(camera);
 
@@ -144,6 +146,7 @@ bool game_init(HWND)
 
 	CreateDisc(colorP1);
 	CreateDisc(colorP2);
+	
 	return 1;
 }
 
@@ -155,33 +158,36 @@ void game_update()
 	deltaTime = timeGetTime() - lastFrameTime;
 	lastFrameTime = timeGetTime();
 
-	degree = degree + 1;
+//	degree = degree + 1;
 	if(degree >= 360) degree = 0;
 	theta = degree*3.1415/180;
 	
-//	round_state = GameRound::ROUND1;
-	round_state = 1;
-	playerstate = PlayerState::P1;
-	/*
+
+	
+	
 	while(round_state <= ROUND_MAX)
 	{
-		while(player2.throw_state <= THROW_MAX)
+		//while(player2.throw_state <= THROW_MAX)
 		{
-			if(playerstate == PlayerState::P1)
+			if(deltaTime >= 10)
 			{
-				player1.throw_state++;
-				playerstate == PlayerState::P2;
-			}
-			else if(playerstate == PlayerState::P2)
-			{
-				player2.throw_state++;
-				playerstate == PlayerState::P1;
+				if(playerstate == PlayerState::P1)
+				{
+					player1.throw_state++;
+					playerstate = PlayerState::P2;
+				}
+				else
+				{
+					player2.throw_state++;
+					playerstate = PlayerState::P1;
+				}
+				//deltaTime = 0;
 			}
 			
 		}
 		round_state++;
 	}
-	*/
+	
 	gm->Update(deltaTime);
 
 	if (gm->GetCamera())
@@ -224,18 +230,7 @@ void game_keyRelease(int key)
 	if (key == DIK_S)
 		cameraVec = Vector3(0.0, 0.0, 1.0);
 		*/
-	if(key == DIK_LEFTARROW)
-	{
-		degree = degree - 5;
-	}
-	if(key == DIK_RIGHTARROW)
-	{
-		degree = degree + 5;
-	}
-	if(key == DIK_SPACE)
-	{
-		//Fire the ball.
-	}
+	
 }
 
 void game_entityUpdate(Advanced2D::Entity* entity) 
@@ -275,7 +270,33 @@ void game_end()
 }
 
 void game_render2d() { }
-void game_keyPress(int key) { }
+
+void game_keyPress(int key) 
+{
+	if(key == DIK_LEFTARROW)
+	{
+		if(degree > -180) degree = degree - 2;
+	}
+	if(key == DIK_RIGHTARROW)
+	{
+		if(degree < 0) degree = degree + 2;
+	}
+	if(key == DIK_SPACE)
+	{
+		//Fire the ball.
+		if(playerstate == PlayerState::P1)
+		{
+			player1.throw_state++;
+			playerstate == PlayerState::P2;
+		}
+		else if(playerstate == PlayerState::P2)
+		{
+			player2.throw_state++;
+			playerstate == PlayerState::P1;
+		}
+	}
+}
+
 void game_mouseButton(int button) { }
 void game_mouseMotion(int x,int y) { }
 void game_mouseMove(int x,int y) { }
