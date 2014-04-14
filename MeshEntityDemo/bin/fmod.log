@@ -7,8 +7,9 @@ FMOD: SystemI::close                 : done.
 
 FMOD: OutputWASAPI::enumerate        : Enumerating...
 FMOD: OutputWASAPI::enumerate        : Initialise COM library.
-FMOD: OutputWASAPI::enumerate        : Found Driver: "Speakers (Realtek High Definition Audio)".
-FMOD: OutputWASAPI::enumerate        : Found Driver: "Microphone (Realtek High Definition Audio)".
+FMOD: OutputWASAPI::enumerate        : Found Driver: "Speakers (Conexant High Definition Audio)".
+FMOD: OutputWASAPI::enumerate        : Found Driver: "Microphone (Conexant High Definition Audio)".
+FMOD: OutputWASAPI::enumerate        : Found Driver: "WaveOut Mix (Conexant High Definition Audio)".
 FMOD: OutputWASAPI::enumerate        : Done.
 FMOD: OutputWASAPI::initEx           : Initialising...
 FMOD: OutputWASAPI::initEx           : Done.
