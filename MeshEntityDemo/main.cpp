@@ -6,6 +6,7 @@ Description: Demonstrates managed mesh entities
 
 #include "..\Engine\Advanced2D.h"
 #include "MeshEntityDemo\GameManager.h"
+#include "MeshEntityDemo\Player.h"
 
 using namespace Advanced2D;
 
@@ -20,6 +21,21 @@ DWORD deltaTime = 0;
 DWORD moveTime = 0;
 float dt;
 float previousTime;
+
+int degree;
+double theta;
+
+//enum GameRound {DEFAULT, ROUND1, ROUND2, ROUND3, MX};
+//GameRound round_state;
+int round_state;
+const int ROUND_MAX = 3;
+const int THROW_MAX = 3;
+
+enum PlayerState{P1, P2};
+PlayerState playerstate;
+
+Player player1;
+Player player2;
 
 D3DCOLORVALUE colorP1;
 D3DCOLORVALUE colorP2;
@@ -75,13 +91,11 @@ bool game_init(HWND)
 
 	//set the camera and perspective
 	camera = new Camera();
-<<<<<<< HEAD
-	camera->setPosition(0.0f, 0.0f, 0.0f);
-	camera->setTarget(0.0f, 0.0f, 1.0f);
-=======
+	degree = 0;
+	theta = degree*3.1415/180;
 	camera->setPosition(0.0f, 0.0f, 70.0f);
-	camera->setTarget(0.0f, 0.0f, 0.0f);
->>>>>>> 41238238ec77ce55693e9b32255f977ceb9b4d00
+	camera->setTarget(sin(theta), 0.0f, cos(theta));
+
 	camera->Update();
 
 	gm->SetCamera(camera);
@@ -141,16 +155,46 @@ void game_update()
 	deltaTime = timeGetTime() - lastFrameTime;
 	lastFrameTime = timeGetTime();
 
-
+	degree = degree + 1;
+	if(degree >= 360) degree = 0;
+	theta = degree*3.1415/180;
+	
+//	round_state = GameRound::ROUND1;
+	round_state = 1;
+	playerstate = PlayerState::P1;
+	/*
+	while(round_state <= ROUND_MAX)
+	{
+		while(player2.throw_state <= THROW_MAX)
+		{
+			if(playerstate == PlayerState::P1)
+			{
+				player1.throw_state++;
+				playerstate == PlayerState::P2;
+			}
+			else if(playerstate == PlayerState::P2)
+			{
+				player2.throw_state++;
+				playerstate == PlayerState::P1;
+			}
+			
+		}
+		round_state++;
+	}
+	*/
 	gm->Update(deltaTime);
 
 	if (gm->GetCamera())
 	{
-		camera->setPosition(camera->getPosition().x + cameraVec.getX(), camera->getPosition().y + cameraVec.getY(), camera->getPosition().z + cameraVec.getZ());
-		camera->setTarget(camera->getPosition().x, camera->getPosition().y, camera->getPosition().z - 1.0);
+		camera->setTarget(cos(theta), 0, sin(theta)+70);
 		camera->Update();
-		cameraVec = Vector3(0.0, 0.0, 0.0);
 	}
+}
+
+int evaluateScore()
+{
+	//waiing for JG. 
+	return 0;
 }
 
 void Render_Debug()
@@ -167,7 +211,7 @@ void game_render3d()
 void game_keyRelease(int key) 
 { 
 	if (key == DIK_ESCAPE) g_engine->Close();
-
+	/*
 	if (key == DIK_A)
 		cameraVec = Vector3(1.0, 0.0, 0.0);
 
@@ -179,7 +223,19 @@ void game_keyRelease(int key)
 
 	if (key == DIK_S)
 		cameraVec = Vector3(0.0, 0.0, 1.0);
-
+		*/
+	if(key == DIK_LEFTARROW)
+	{
+		degree = degree - 5;
+	}
+	if(key == DIK_RIGHTARROW)
+	{
+		degree = degree + 5;
+	}
+	if(key == DIK_SPACE)
+	{
+		//Fire the ball.
+	}
 }
 
 void game_entityUpdate(Advanced2D::Entity* entity) 
