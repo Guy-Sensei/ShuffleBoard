@@ -6,11 +6,11 @@ Description: Demonstrates managed mesh entities
 
 #include "..\Engine\Advanced2D.h"
 #include "MeshEntityDemo\GameManager.h"
-<<<<<<< HEAD
+
 #include "MeshEntityDemo\Rock.h"
-=======
+
 #include "MeshEntityDemo\Player.h"
->>>>>>> d223a63a1c95e1955cf56511248a7737f3ea2dff
+
 
 using namespace Advanced2D;
 
@@ -127,7 +127,7 @@ bool game_init(HWND)
 	startPosition = btVector3(1, 10, 0);
 	secondPosition = btVector3(1.5, 12, 0);
 
-<<<<<<< HEAD
+
 	direction = btVector3(0, 0, -1);
 	r1 = new Rock(colorP1, startPosition);
 	gm->GetObjects()->push_back(r1);
@@ -135,11 +135,8 @@ bool game_init(HWND)
 	if (gm->GetWorld())
 		gm->GetWorld()->addRigidBody(r1->GetRigidBody());
 
-=======
-	CreateDisc(colorP1);
-	CreateDisc(colorP2);
 	
->>>>>>> d223a63a1c95e1955cf56511248a7737f3ea2dff
+
 	return 1;
 }
 
@@ -209,7 +206,7 @@ void game_render3d()
 
 void game_keyRelease(int key) 
 { 
-<<<<<<< HEAD
+
 	if (key == DIK_ESCAPE)
 	{
 		gm->DestroyAllObjects();
@@ -226,8 +223,7 @@ void game_keyRelease(int key)
 	}	
 
 
-=======
-	if (key == DIK_ESCAPE) g_engine->Close();
+
 	/*
 >>>>>>> d223a63a1c95e1955cf56511248a7737f3ea2dff
 	if (key == DIK_A)
