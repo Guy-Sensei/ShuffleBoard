@@ -579,5 +579,26 @@ namespace Advanced2D
 		id++;
 	}
 
+	void Engine::clearAllEntities()
+	{
+		std::list<Entity*>::iterator iter;
+		iter = p_entities.begin();
+		while (iter != p_entities.end())
+		{
+			delete (*iter);
+			iter = p_entities.erase( iter );
+			iter++;
+		}
+	}
+
+	void Engine::clearEntityType(RenderType objectType)
+	{
+
+	}
+	
+	void Engine::removeEntity(int id)
+	{
+
+	}
 
 } //namespace

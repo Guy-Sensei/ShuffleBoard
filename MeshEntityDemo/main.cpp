@@ -6,6 +6,7 @@ Description: Demonstrates managed mesh entities
 
 #include "..\Engine\Advanced2D.h"
 #include "MeshEntityDemo\GameManager.h"
+#include "MeshEntityDemo\Rock.h"
 
 using namespace Advanced2D;
 
@@ -14,6 +15,9 @@ Camera *camera;
 Vector3 cameraVec;
 Light *light1;
 Light *light2;
+
+Rock* r1;
+btVector3 direction;
 
 DWORD lastFrameTime = 0;
 DWORD deltaTime = 0;
@@ -33,30 +37,6 @@ int Time()
 }
 
 #define MAX 10
-
-void CreateDisc(D3DCOLORVALUE color)
-{
-	D3DCOLORVALUE ambColor;
-	ambColor.r = color.r * 0.3;
-	ambColor.g = color.g * 0.3;
-	ambColor.b = color.b * 0.3;
-	ambColor.a = 0;
-
-	D3DCOLORVALUE diffColor;
-	diffColor.r = color.r*1;
-	diffColor.g = color.g*1;
-	diffColor.b = color.b*1;
-	diffColor.a = 0;
-
-	GameObject* disc;
-	disc = gm->CreateGameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, btVector3(1,1,1), startPosition, btQuaternion((90), (1), (0), (0)));
-	disc->CreateMeshFromShape();
-	disc->GetMesh()->SetColour(diffColor, Mesh::MT_DIFFUSE);
-	disc->GetMesh()->SetColour(ambColor, Mesh::MT_AMBIENT);
-	disc->GetMesh()->SetRotation(0, 90, 0);
-	
-	//disc->GetRigidBody()->setAngularFactor(20);
-}
 
 bool game_preload() 
 {
@@ -123,8 +103,13 @@ bool game_init(HWND)
 	startPosition = btVector3(1, 10, 0);
 	secondPosition = btVector3(1.5, 12, 0);
 
-	CreateDisc(colorP1);
-	CreateDisc(colorP2);
+	direction = btVector3(0, 0, -1);
+	r1 = new Rock(colorP1, startPosition);
+	gm->GetObjects()->push_back(r1);
+
+	if (gm->GetWorld())
+		gm->GetWorld()->addRigidBody(r1->GetRigidBody());
+
 	return 1;
 }
 
@@ -161,7 +146,21 @@ void game_render3d()
 
 void game_keyRelease(int key) 
 { 
-	if (key == DIK_ESCAPE) g_engine->Close();
+	if (key == DIK_ESCAPE)
+	{
+		gm->DestroyAllObjects();
+		g_engine->Close();
+	}
+
+	if(key == DIK_SPACE)
+	{
+		btVector3 velocity = direction;
+		velocity.normalize();
+		velocity *= 25.0f;
+
+		r1->GetRigidBody()->setLinearVelocity(velocity);
+	}	
+
 
 	if (key == DIK_A)
 		cameraVec = Vector3(1.0, 0.0, 0.0);

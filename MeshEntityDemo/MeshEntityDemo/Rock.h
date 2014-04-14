@@ -1,12 +1,18 @@
 #pragma once
-#include "..\..\Engine\Advanced2D.h"
+#include "GameObject.h"
 
 //#include "C:\Users\Jean-G\Google Drive\School\Semester 4\GAME2002\Mesh Demo Post Class\Engine\Mesh.h"
 class Rock :
-	public Advanced2D::Mesh
+	public GameObject
 {
 public:
-	Rock();
+	Rock(D3DCOLORVALUE color, const btVector3 &startPos);
 	~Rock();
+
+	const btVector3* GetPos() { return pos; }
+	void SetPos(btVector3* p) { pos = p; }
+
+private:
+	btVector3* pos;
 };
 

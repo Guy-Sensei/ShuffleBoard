@@ -15,15 +15,17 @@ public:
 	// 2D Sprite
 	void LoadSprite(char *filename);
 	void SetSprite(Advanced2D::Sprite *sprite) { m_sprite = sprite; }
+	//Advanced2D::Sprite* GetSprite() { return dynamic_cast<Advanced2D::Sprite*>(m_entity); }
 	Advanced2D::Sprite* GetSprite() { return m_sprite; }
-
+	
 	// 3D Mesh
 	void LoadMesh(char *filename);
 	void SetMesh(Advanced2D::Mesh *mesh) { m_mesh = mesh; }
 	Advanced2D::Mesh* GetMesh() { return m_mesh; }
+	//Advanced2D::Mesh* GetMesh() { return dynamic_cast<Advanced2D::Mesh*>(m_entity); }
 	void CreateMeshFromShape();
 
-
+	Advanced2D::RenderType GetRenderType() { return renderType; }
 	void SetScale(double x, double y, double z);
 
 	// Physics
@@ -35,12 +37,14 @@ public:
 	{ 
 		if (m_pMotionState) m_pMotionState->GetWorldTransform(transform); 
 	}
-	
+
 	btVector3 GetColor() { return m_color; }
 
 protected:
+	Advanced2D::Entity *m_entity;
 	Advanced2D::Mesh *m_mesh;
 	Advanced2D::Sprite *m_sprite;
+	Advanced2D::RenderType renderType;
 	btCollisionShape*  m_pShape;
 	btRigidBody*    m_pBody;
 	DMotionState*  m_pMotionState;

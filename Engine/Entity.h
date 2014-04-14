@@ -23,7 +23,7 @@ namespace Advanced2D {
 
     public:
         Entity(enum RenderType renderType);
-        virtual ~Entity() { };
+        virtual ~Entity();
 
         virtual void move() = 0;
         virtual void animate() = 0;

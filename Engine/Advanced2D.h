@@ -206,6 +206,9 @@ namespace Advanced2D
 		std::list<Entity*> getEntityList() { return p_entities; }
 		long getEntityCount() { return (long)p_entities.size(); }
 		void addEntity(Entity *entity);
+		void clearAllEntities();
+		void clearEntityType(RenderType objectType);
+		void removeEntity(int id);
 		Entity *findEntity(std::string name);
 		Entity *findEntity(int objectType);
 

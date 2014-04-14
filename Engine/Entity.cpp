@@ -14,5 +14,10 @@ namespace Advanced2D {
         this->lifetimeLength = 0;
         this->lifetimeTimer.reset();
     }
+
+	Entity::~Entity()
+	{
+		this->alive = false;
+	}
     
 };

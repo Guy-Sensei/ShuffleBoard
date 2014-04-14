@@ -23,14 +23,19 @@ public:
 		const btVector3 &initialPosition = btVector3(0.0f,0.0f,0.0f), 
 		const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 
+	btDynamicsWorld* GetWorld() { return m_pWorld; }
+	GameObjects* GetObjects() { return m_objects; }
+
 	void DestroyGameObject(int id);
+	void DestroyObjectsOfType(Advanced2D::RenderType type);
+	void DestroyAllObjects();
 	void Update(float dt);
 	Advanced2D::Camera* GetCamera() { return m_camera; }
 	void SetCamera(Advanced2D::Camera* cam) { m_camera = cam; }
 	void DebugRender();
 
 private:
-	GameObjects m_objects;
+	GameObjects* m_objects;
 	Advanced2D::Camera *m_camera;
 
 	// Bullet components

@@ -31,7 +31,7 @@ namespace Advanced2D {
 		}
 
 		if (mesh != NULL) mesh->Release();
-
+		
 	}
 
 	int Mesh::GetFaceCount()

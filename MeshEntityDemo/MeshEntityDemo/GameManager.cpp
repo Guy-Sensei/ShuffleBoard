@@ -3,6 +3,7 @@
 
 GameManager::GameManager(void)
 {
+	m_objects = new GameObjects();
 }
 
 
@@ -13,6 +14,7 @@ GameManager::~GameManager(void)
 	delete m_pBroadphase;
 	delete m_pDispatcher;
 	delete m_pCollisionConfiguration;
+	DestroyAllObjects();
 }
 
 void GameManager::InitializePhysics()
@@ -31,10 +33,10 @@ void GameManager::Update(float dt)
 		m_pWorld->stepSimulation(dt * 5000);
 	}
 
-	for(GameObjects::iterator i = m_objects.begin(); i != m_objects.end(); ++i)
+	for(GameObjects::iterator i = m_objects->begin(); i != m_objects->end(); ++i)
 	{
 		GameObject* pObj = *i;
-		
+
 		btTransform transform = pObj->GetRigidBody()->getWorldTransform();
 		btVector3 v = transform.getOrigin();
 		Advanced2D::Mesh *mesh = pObj->GetMesh();
@@ -48,7 +50,7 @@ void GameManager::Update(float dt)
 
 void GameManager::DebugRender()
 {
-	for(GameObjects::iterator i = m_objects.begin(); i != m_objects.end(); ++i)
+	for(GameObjects::iterator i = m_objects->begin(); i != m_objects->end(); ++i)
 	{
 		GameObject* pObj = *i;
 		DrawBox(pObj);
@@ -113,10 +115,55 @@ GameObject* GameManager::CreateGameObject(btCollisionShape* pShape,
 {
 
 	GameObject* pObject = new GameObject(pShape, mass, color, initialPosition, initialRotation);
-	m_objects.push_back(pObject);
+	m_objects->push_back(pObject);
 
 	if (m_pWorld)
 		m_pWorld->addRigidBody(pObject->GetRigidBody());
 
 	return pObject;
+}
+
+void GameManager::DestroyObjectsOfType(Advanced2D::RenderType type)
+{
+	GameObjects::iterator i = m_objects->begin();
+	while(i != m_objects->end())
+	{
+		GameObject* pObj = *i;
+		if(pObj->GetRenderType() == type)
+		{
+			m_pWorld->removeRigidBody(pObj->GetRigidBody());
+			delete pObj;
+			i = m_objects->erase(i);
+		}
+
+		if(i == m_objects->end() || m_objects->size() == 0)
+			break;
+
+		++i;
+	}
+	//for(GameObjects::iterator i = m_objects.begin(); i != m_objects.end(); ++i)
+	//{
+	//	GameObject* pObj = *i;
+	//	if(pObj->GetRenderType() == type)
+	//	{
+	//		delete pObj;
+	//		i = m_objects.erase(i);
+	//	}
+	//}		
+}
+
+void GameManager::DestroyAllObjects()
+{
+	for(GameObjects::iterator i = m_objects->begin(); i != m_objects->end(); ++i)
+	{
+		GameObject* pObj = *i;
+		delete pObj;
+	}		
+
+	m_objects->clear();
+}
+
+void GameManager::DestroyGameObject(int id)
+{
+
 }

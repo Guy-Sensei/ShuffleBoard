@@ -25,6 +25,7 @@ GameObject::GameObject(btCollisionShape* pShape,
 
 	m_pBody = new btRigidBody(cInfo);
 
+	m_entity = NULL;
 	m_mesh = NULL;
 	m_sprite = NULL;
 }
@@ -34,7 +35,7 @@ void GameObject::LoadMesh(char *filename)
 	m_mesh = new Advanced2D::Mesh();
 	m_mesh->Load(filename);
 	m_mesh->setObjectType(Advanced2D::RENDER3D);
-
+	renderType = Advanced2D::RENDER3D;
 	btTransform transform = m_pBody->getWorldTransform();
 	btVector3 v = transform.getOrigin();
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
@@ -78,6 +79,7 @@ void GameObject::CreateMeshFromShape()
 	}
 
 	m_mesh->setObjectType(Advanced2D::RENDER3D);
+	renderType = Advanced2D::RENDER3D;
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
 	
 	g_engine->addEntity(m_mesh);
@@ -88,12 +90,15 @@ void GameObject::LoadSprite(char *filename)
 	m_sprite = new Advanced2D::Sprite();
 	m_sprite->loadImage(filename);
 	m_sprite->setObjectType(Advanced2D::RENDER2D);
-
+	renderType = Advanced2D::RENDER2D;
 	g_engine->addEntity(m_sprite);
 }
 
 GameObject::~GameObject() {
+	delete m_entity;
 	delete m_pBody;
 	delete m_pMotionState;
 	delete m_pShape;
+	delete m_mesh;
+	delete m_sprite;
 }
