@@ -26,11 +26,13 @@ public:
 	btDynamicsWorld* GetWorld() { return m_pWorld; }
 	GameObjects* GetObjects() { return m_objects; }
 
+
 	void DestroyGameObject(int id);
 	void DestroyObjectsOfType(Advanced2D::RenderType type);
 	void DestroyAllObjects();
 	void Update(float dt);
 	Advanced2D::Camera* GetCamera() { return m_camera; }
+	Advanced2D::Audio* GetAudio() { return audio; }
 	void SetCamera(Advanced2D::Camera* cam) { m_camera = cam; }
 	void DebugRender();
 
@@ -38,6 +40,7 @@ private:
 	GameObjects* m_objects;
 	Advanced2D::Camera *m_camera;
 
+	Advanced2D::Audio* audio;
 	// Bullet components
 	btBroadphaseInterface* m_pBroadphase;
 	btCollisionConfiguration* m_pCollisionConfiguration;

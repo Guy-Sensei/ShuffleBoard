@@ -14,6 +14,7 @@ Description: Demonstrates managed mesh entities
 
 using namespace Advanced2D;
 
+Audio* audio;
 GameManager* gm;
 Camera *camera;
 Vector3 cameraVec;
@@ -80,7 +81,8 @@ bool game_init(HWND)
 
 	gm = new GameManager();
 	gm->InitializePhysics();
-
+	gm->GetAudio()->Load("music.mp3", "music");
+	gm->GetAudio()->Play("music");
 	//set the camera and perspective
 	camera = new Camera();
 	degree = -90;
