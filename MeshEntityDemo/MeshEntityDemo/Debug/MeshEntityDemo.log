@@ -1,24 +1,13 @@
-﻿Build started 14/04/2014 1:42:55 PM.
+﻿Build started 14/04/2014 10:08:01 PM.
      1>Project "C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\MeshEntityDemo.vcxproj" on node 2 (Build target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp GameManager.cpp GameObject.cpp Rock.cpp ShuffleBoardGame.cpp
-         ShuffleBoardGame.cpp
-         Rock.cpp
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\meshentitydemo\rock.cpp(7): warning C4305: 'argument' : truncation from 'double' to 'const btScalar'
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\meshentitydemo\rock.cpp(10): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\meshentitydemo\rock.cpp(11): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\meshentitydemo\rock.cpp(12): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-         GameObject.cpp
-         GameManager.cpp
+         C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp
          main.cpp
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(55): warning C4244: 'return' : conversion from 'time_t' to 'int', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(80): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(181): warning C4244: 'argument' : conversion from 'DWORD' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(185): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(298): warning C4553: '==' : operator has no effect; did you intend '='?
-     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(303): warning C4553: '==' : operator has no effect; did you intend '='?
-         Generating Code...
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(62): warning C4244: 'return' : conversion from 'time_t' to 'int', possible loss of data
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(89): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(198): warning C4244: 'argument' : conversion from 'DWORD' to 'float', possible loss of data
+     1>c:\users\pad\documents\shuffleboard\meshentitydemo\main.cpp(202): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Bullet\lib fmodexL_vc.lib BulletCollision_vs2010_debug.lib BulletDynamics_vs2010_debug.lib LinearMath_vs2010_debug.lib ..\..\Engine\lib\debug\Advanced2D.lib d3d9.lib d3dx9.lib dinput8.lib dxguid.lib winmm.lib xinput.lib Strmiids.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\..\bin\MeshEntityDemo_debug.lib" /MACHINE:X86 Debug\main.obj
          Debug\GameManager.obj
@@ -43,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:24.10
+Time Elapsed 00:00:13.13

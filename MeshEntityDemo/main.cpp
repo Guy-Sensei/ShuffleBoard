@@ -20,7 +20,10 @@ Vector3 cameraVec;
 Light *light1;
 Light *light2;
 
-Rock* r1;
+const int numberThrow = 6; 
+
+Rock* r1[numberThrow];
+Rock* r2;
 btVector3 direction;
 
 DWORD lastFrameTime = 0;
@@ -38,6 +41,7 @@ int round_state;
 const int ROUND_MAX = 3;
 const int THROW_MAX = 3;
 
+
 enum PlayerState{P1, P2};
 PlayerState playerstate;
 
@@ -48,6 +52,9 @@ D3DCOLORVALUE colorP1;
 D3DCOLORVALUE colorP2;
 btVector3 startPosition;
 btVector3 secondPosition;
+
+
+int gameThrow;
 
 int Time()
 {
@@ -69,6 +76,8 @@ bool game_preload()
 
 bool game_init(HWND) 
 {
+	gameThrow = 0; 
+
 	gm = new GameManager();
 	gm->InitializePhysics();
 
@@ -76,8 +85,8 @@ bool game_init(HWND)
 	camera = new Camera();
 	degree = -90;
 	theta = degree*3.1415/180;
-	camera->setPosition(0.0f, 0.0f, 80.0f);
-	camera->setTarget(cos(theta), 0.0f, sin(theta)+70);
+	camera->setPosition(1.0f, 0.0f, 50.0f);
+	camera->setTarget(cos(theta)+1, 0.0f, sin(theta)+40);
 	camera->Update();
 
 	round_state = 1;
@@ -102,7 +111,7 @@ bool game_init(HWND)
 
 
 	GameObject* ground;	
-	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,5,50)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(0, -10.0f, 0.0f));
+	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,5,100)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(1, -10.0f, 0.0f));
 	ground->CreateMeshFromShape();
 
 	D3DCOLORVALUE groundColor;
@@ -124,19 +133,27 @@ bool game_init(HWND)
 	colorP2.b = 0;
 	colorP2.a = 0;
 
-	startPosition = btVector3(1, 10, 0);
-	secondPosition = btVector3(1.5, 12, 0);
+	startPosition = btVector3(0, 0, 1);
+	//secondPosition = btVector3(120, 120, 120);
 
 
-	direction = btVector3(0, 0, -1);
-	r1 = new Rock(colorP1, startPosition);
-	gm->GetObjects()->push_back(r1);
+	//direction = btVector3(0, 0, -1);
 
-	if (gm->GetWorld())
-		gm->GetWorld()->addRigidBody(r1->GetRigidBody());
-
+	for(int i = 0; i < numberThrow; i++)
+	{
+		if(i%2 == 0) 
+			r1[i] = new Rock(colorP1, startPosition);	
+		else
+			r1[i] = new Rock(colorP2, startPosition);
 	
-
+		gm->GetObjects()->push_back(r1[i]);
+	
+		if (gm->GetWorld())
+		{
+			gm->GetWorld()->addRigidBody(r1[i]->GetRigidBody());
+		}
+	}
+	
 	return 1;
 }
 
@@ -152,9 +169,9 @@ void game_update()
 	if(degree >= 360) degree = 0;
 	theta = degree*3.1415/180;
 	
-
 	
 	
+	/*
 	while(round_state <= ROUND_MAX)
 	{
 		//while(player2.throw_state <= THROW_MAX)
@@ -177,12 +194,12 @@ void game_update()
 		}
 		round_state++;
 	}
-	
+	*/
 	gm->Update(deltaTime);
 
 	if (gm->GetCamera())
 	{
-		camera->setTarget(cos(theta), 0, sin(theta)+70);
+		camera->setTarget(cos(theta)+1, 0, sin(theta)+40);
 		camera->Update();
 	}
 }
@@ -215,30 +232,13 @@ void game_keyRelease(int key)
 
 	if(key == DIK_SPACE)
 	{
+		direction = btVector3(camera->getTarget().x - camera->getPosition().x, camera->getTarget().y - camera->getPosition().y, camera->getTarget().z - camera->getPosition().z); //
 		btVector3 velocity = direction;
 		velocity.normalize();
-		velocity *= 25.0f;
-
-		r1->GetRigidBody()->setLinearVelocity(velocity);
+		velocity *= 15.0f;
+		r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
+		gameThrow++;
 	}	
-
-
-
-	/*
->>>>>>> d223a63a1c95e1955cf56511248a7737f3ea2dff
-	if (key == DIK_A)
-		cameraVec = Vector3(1.0, 0.0, 0.0);
-
-	if (key == DIK_D)
-		cameraVec = Vector3(-1.0, 0.0, 0.0);
-
-	if (key == DIK_W)
-		cameraVec = Vector3(0.0, 0.0, -1.0);
-
-	if (key == DIK_S)
-		cameraVec = Vector3(0.0, 0.0, 1.0);
-		*/
-	
 }
 
 void game_entityUpdate(Advanced2D::Entity* entity) 
@@ -289,20 +289,7 @@ void game_keyPress(int key)
 	{
 		if(degree < 0) degree = degree + 2;
 	}
-	if(key == DIK_SPACE)
-	{
-		//Fire the ball.
-		if(playerstate == PlayerState::P1)
-		{
-			player1.throw_state++;
-			playerstate == PlayerState::P2;
-		}
-		else if(playerstate == PlayerState::P2)
-		{
-			player2.throw_state++;
-			playerstate == PlayerState::P1;
-		}
-	}
+
 }
 
 void game_mouseButton(int button) { }

@@ -11,8 +11,10 @@ public:
 
 	const btVector3* GetPos() { return pos; }
 	void SetPos(btVector3* p) { pos = p; }
-
-private:
+	void SetMass(int _m) { mass = _m;}
+	
+protected:
 	btVector3* pos;
+	int mass;
 };
 
