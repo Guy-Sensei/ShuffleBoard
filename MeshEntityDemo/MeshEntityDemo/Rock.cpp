@@ -4,7 +4,7 @@
 #include "Rock.h"
 #include "..\..\Engine\Advanced2D.h"
 
-Rock::Rock(D3DCOLORVALUE color, const btVector3 &startPos) : GameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1.0, startPos, btVector3(1, 10, 0), btQuaternion((90), (1), (0), (0)))
+Rock::Rock(D3DCOLORVALUE color, const btVector3 &startPos) : GameObject(new btCylinderShape(btVector3(1, 1, 0.1)), 1, startPos, btVector3(1, 10, 0), btQuaternion((90), (1), (0), (0)))
 {
 	D3DCOLORVALUE ambColor;
 	ambColor.r = color.r * 0.3;
