@@ -7,9 +7,11 @@
 
 
 #include "State.h"
+#include "InGameState.h"
 #include "GameManager.h"
 #include "..\..\Engine\Advanced2D.h"
-
+#include "Rock.h"
+#include "Player.h"
 using namespace Advanced2D;
 
 class GameManager;

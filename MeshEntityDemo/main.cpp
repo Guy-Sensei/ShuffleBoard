@@ -86,7 +86,7 @@ bool game_init(HWND)
 	gm = new GameManager();
 	gm->InitializePhysics();
 
-	State *newState = new TitleScreenState(*gm);
+	State *newState = new InGameState(*gm);
 	gm->SetState(*newState);
 	gm->GetState()->Enter();
 

@@ -1,5 +1,5 @@
 #include "TitleScreenState.h"
-#include "InGameState.h"
+
 
 TitleScreenState::TitleScreenState(GameManager& manager)
 {
@@ -27,11 +27,12 @@ void TitleScreenState::HandleInput(int key, inputStates curState)
 	{
 		if (key == DIK_SPACE)
 		{
-			gm->GetState()->Exit();
-			State *newState = new InGameState(*gm);
+ 			InGameState *tempstate = new InGameState(*gm);
+			State *newState = tempstate;
 			gm->SetState(*newState);
 			gm->GetState()->Enter();
 			
+			this->Exit();
 
 		}
 	}
@@ -67,8 +68,8 @@ void TitleScreenState::Update()
 void TitleScreenState::Exit()
 {
 	
-	delete camera;
-	delete light;
+	//delete camera;
+	//delete light;
 	gm->DestroyAllObjects();
 }
 

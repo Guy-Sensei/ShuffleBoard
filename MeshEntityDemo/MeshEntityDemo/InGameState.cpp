@@ -178,9 +178,7 @@ void InGameState::Update()
 
 void InGameState::Enter()
 {
-		//data =  gm->CreateGameObject("title.bmp");
-		//data->GetSprite()->setX(50);
-		//data->GetSprite()->setY(75);
+
 };
 
 void InGameState::Exit()

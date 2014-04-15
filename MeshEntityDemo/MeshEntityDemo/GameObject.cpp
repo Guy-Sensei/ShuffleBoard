@@ -6,6 +6,7 @@ GameObject::GameObject(btCollisionShape* pShape,
 					   const btVector3 &initialPosition, 
 					   const btQuaternion &initialRotation) 
 {
+	isSprite = false;
 	m_pShape = pShape;
 	m_color = color;
 
