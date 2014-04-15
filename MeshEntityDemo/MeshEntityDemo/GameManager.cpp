@@ -3,6 +3,8 @@
 
 GameManager::GameManager(void)
 {
+	audio = new Advanced2D::Audio();
+	audio->Init();
 	m_objects = new GameObjects();
 }
 
@@ -15,6 +17,8 @@ GameManager::~GameManager(void)
 	delete m_pDispatcher;
 	delete m_pCollisionConfiguration;
 	DestroyAllObjects();
+	delete m_camera;
+	delete audio;
 }
 
 void GameManager::InitializePhysics()
@@ -141,15 +145,6 @@ void GameManager::DestroyObjectsOfType(Advanced2D::RenderType type)
 
 		++i;
 	}
-	//for(GameObjects::iterator i = m_objects.begin(); i != m_objects.end(); ++i)
-	//{
-	//	GameObject* pObj = *i;
-	//	if(pObj->GetRenderType() == type)
-	//	{
-	//		delete pObj;
-	//		i = m_objects.erase(i);
-	//	}
-	//}		
 }
 
 void GameManager::DestroyAllObjects()
