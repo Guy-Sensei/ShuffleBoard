@@ -238,6 +238,7 @@ void game_keyRelease(int key)
 		velocity *= 15.0f;
 		r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
 		gameThrow++;
+		if(gameThrow == 7) gameThrow = 6;
 	}	
 }
 

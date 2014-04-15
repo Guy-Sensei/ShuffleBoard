@@ -1,4 +1,4 @@
-﻿Build started 14/04/2014 10:08:01 PM.
+﻿Build started 15/04/2014 8:33:57 AM.
      1>Project "C:\Users\pad\Documents\ShuffleBoard\MeshEntityDemo\MeshEntityDemo\MeshEntityDemo.vcxproj" on node 2 (Build target(s)).
        Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>ClCompile:
@@ -32,4 +32,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:13.13
+Time Elapsed 00:00:15.26
