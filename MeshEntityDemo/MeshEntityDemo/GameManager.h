@@ -10,6 +10,8 @@
 
 typedef std::vector<GameObject*> GameObjects;
 
+class State;
+
 class GameManager
 {
 public:
@@ -35,9 +37,12 @@ public:
 	Advanced2D::Audio* GetAudio() { return audio; }
 	void SetCamera(Advanced2D::Camera* cam) { m_camera = cam; }
 	void DebugRender();
-
+	
+	State *GetState(){return gameState;}
+	void SetState(State &newState){gameState = &newState;}
 private:
 	GameObjects* m_objects;
+	State *gameState;
 	Advanced2D::Camera *m_camera;
 
 	Advanced2D::Audio* audio;

@@ -90,6 +90,7 @@
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="InGameState.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="ShuffleBoardGame.cpp" />
   </ItemGroup>
