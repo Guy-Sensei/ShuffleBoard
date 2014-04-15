@@ -36,6 +36,9 @@
     <ClCompile Include="InGameState.cpp">
       <Filter>Header Files\StateMachine</Filter>
     </ClCompile>
+    <ClCompile Include="TitleScreenState.cpp">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rock.h">

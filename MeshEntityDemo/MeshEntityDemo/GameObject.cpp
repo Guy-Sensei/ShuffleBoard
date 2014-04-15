@@ -30,6 +30,16 @@ GameObject::GameObject(btCollisionShape* pShape,
 	m_sprite = NULL;
 }
 
+GameObject::GameObject(char *filename) 
+{
+	isSprite = true;
+	m_pShape = NULL;
+	m_color = btVector3(1,1,1);
+	m_mesh = false;
+	m_sprite = NULL;
+	LoadSprite(filename);
+}
+
 void GameObject::LoadMesh(char *filename)
 {
 	m_mesh = new Advanced2D::Mesh();
@@ -95,10 +105,14 @@ void GameObject::LoadSprite(char *filename)
 }
 
 GameObject::~GameObject() {
-	delete m_entity;
-	delete m_pBody;
-	delete m_pMotionState;
-	delete m_pShape;
-	delete m_mesh;
+
+	if (getIsSprite() == false)
+	{
+		delete m_entity;
+		delete m_pBody;
+		delete m_pMotionState;
+		delete m_pShape;
+		delete m_mesh;
+	}
 	delete m_sprite;
 }

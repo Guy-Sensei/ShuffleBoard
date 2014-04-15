@@ -25,6 +25,8 @@ public:
 		const btVector3 &initialPosition = btVector3(0.0f,0.0f,0.0f), 
 		const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 
+	GameObject* CreateGameObject(char *filename);
+
 	btDynamicsWorld* GetWorld() { return m_pWorld; }
 	GameObjects* GetObjects() { return m_objects; }
 
@@ -40,6 +42,7 @@ public:
 	
 	State *GetState(){return gameState;}
 	void SetState(State &newState){gameState = &newState;}
+
 private:
 	GameObjects* m_objects;
 	State *gameState;

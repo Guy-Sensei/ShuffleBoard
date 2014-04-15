@@ -185,7 +185,9 @@ void InGameState::Enter()
 
 void InGameState::Exit()
 {
+	
 	delete camera;
 	delete light1;
 	delete light2;
+	gm->DestroyAllObjects();
 }

@@ -12,7 +12,7 @@ Description: Demonstrates managed mesh entities
 #include "MeshEntityDemo\Player.h"
 
 #include "MeshEntityDemo\InGameState.h"
-
+#include "MeshEntityDemo\TitleScreenState.h"
 using namespace Advanced2D;
 
 
@@ -86,7 +86,7 @@ bool game_init(HWND)
 	gm = new GameManager();
 	gm->InitializePhysics();
 
-	State *newState = new InGameState(*gm);
+	State *newState = new TitleScreenState(*gm);
 	gm->SetState(*newState);
 	gm->GetState()->Enter();
 
@@ -173,6 +173,7 @@ bool game_init(HWND)
 
 void game_update() 
 {
+
 	gm->GetState()->Update();
 	/*
 

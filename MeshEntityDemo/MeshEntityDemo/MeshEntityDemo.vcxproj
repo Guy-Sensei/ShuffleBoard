@@ -93,6 +93,7 @@
     <ClCompile Include="InGameState.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="ShuffleBoardGame.cpp" />
+    <ClCompile Include="TitleScreenState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AimState.h" />
