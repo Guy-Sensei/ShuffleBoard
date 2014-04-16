@@ -31,7 +31,7 @@ public:
 
 	// Physics
 	btCollisionShape* GetShape() { return m_pShape; }
-	btRigidBody* GetRigidBody() { return m_pBody; }
+ 	btRigidBody* GetRigidBody() { return m_pBody; }
 	btMotionState* GetMotionState() { return m_pMotionState; }
 
 	void GetTransform(btScalar* transform)

@@ -31,7 +31,7 @@ public:
 	float previousTime;
 
 	TitleScreenState(){};
-	TitleScreenState(GameManager& manager);
+	TitleScreenState(GameManager* manager);
 	~TitleScreenState(){};
 	void HandleInput(int key, inputStates curState);
 	void Update();

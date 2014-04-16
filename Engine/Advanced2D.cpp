@@ -581,14 +581,15 @@ namespace Advanced2D
 
 	void Engine::clearAllEntities()
 	{
-		std::list<Entity*>::iterator iter;
-		iter = p_entities.begin();
-		while (iter != p_entities.end())
-		{
-			delete (*iter);
-			iter = p_entities.erase( iter );
-			iter++;
-		}
+		p_entities.clear();
+		//std::list<Entity*>::iterator iter;
+		//iter = p_entities.begin();
+		//while (iter != p_entities.end())
+		//{
+		//	//delete (*iter);
+		//	iter = p_entities.erase( iter );
+		//	iter++;
+		//}
 	}
 
 	void Engine::clearEntityType(RenderType objectType)

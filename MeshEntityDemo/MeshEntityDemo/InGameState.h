@@ -58,7 +58,7 @@ public:
 
 	int gameThrow;
 	InGameState();
-	InGameState(GameManager& manager);
+	InGameState(GameManager* manager);
 	~InGameState(){};
 	void HandleInput(int key, inputStates curState);
 	void Update();

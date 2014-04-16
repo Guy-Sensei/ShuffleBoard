@@ -63,7 +63,7 @@ void GameObject::CreateMeshFromShape()
 	float halfHeight;
 	float halfDepth;
 	btVector3 halfSize;
-	
+
 	switch(m_pShape->getShapeType())
 	{
 	case CYLINDER_SHAPE_PROXYTYPE:
@@ -92,7 +92,7 @@ void GameObject::CreateMeshFromShape()
 	m_mesh->setObjectType(Advanced2D::RENDER3D);
 	renderType = Advanced2D::RENDER3D;
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
-	
+
 	g_engine->addEntity(m_mesh);
 }
 
@@ -107,13 +107,20 @@ void GameObject::LoadSprite(char *filename)
 
 GameObject::~GameObject() {
 
-	if (getIsSprite() == false)
+	switch (renderType)
 	{
-		delete m_entity;
+	case Advanced2D::RENDER3D:
 		delete m_pBody;
 		delete m_pMotionState;
 		delete m_pShape;
-		delete m_mesh;
+		m_mesh->setAlive(false);
+		break;
+
+	case Advanced2D::RENDER2D:
+		m_sprite->setAlive(false);
+		break;
+
+	default:
+		break;
 	}
-	delete m_sprite;
 }

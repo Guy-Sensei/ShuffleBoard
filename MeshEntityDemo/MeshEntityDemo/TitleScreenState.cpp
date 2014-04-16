@@ -1,15 +1,15 @@
 #include "TitleScreenState.h"
 
 
-TitleScreenState::TitleScreenState(GameManager& manager)
+TitleScreenState::TitleScreenState(GameManager* manager)
 {
-	gm = &manager;
+	gm = manager;
 	//set the camera and perspective
 	camera = new Camera();
 	camera->setPosition(0.0f, 2.0f, 50.0f);
 	camera->setTarget(0.0f, 0.0f, 0.0f);
 	camera->Update();
-	
+
 	gm->SetCamera(camera);
 
 	//create a directional light
@@ -27,33 +27,45 @@ void TitleScreenState::HandleInput(int key, inputStates curState)
 	{
 		if (key == DIK_SPACE)
 		{
- 			InGameState *tempstate = new InGameState(*gm);
-			State *newState = tempstate;
-			gm->SetState(*newState);
-			gm->GetState()->Enter();
-			
+			// pause the rendering engine
+			g_engine->setPaused(true);
+
+			// call exit function on this state
 			this->Exit();
 
+			// Destroy all objects
+			gm->DestroyAllObjects();
+
+			// change the state
+			InGameState *tempstate = new InGameState(gm);
+			State *newState = tempstate;
+			gm->SetState(newState);
+
+			// call the Enter function of the new state
+			gm->GetState()->Enter();
+
+			// resume rendering engine
+			g_engine->setPaused(false);
 		}
 	}
 }
 
 void TitleScreenState::Enter()
-	{
+{
 
-		title =  gm->CreateGameObject("title.bmp");
-	};
+	title =  gm->CreateGameObject("title.bmp");
+};
 
 void TitleScreenState::Update()
 {
-	
+
 	if(lastFrameTime == 0)
-	lastFrameTime = timeGetTime();
+		lastFrameTime = timeGetTime();
 	deltaTime = timeGetTime() - lastFrameTime;
 	lastFrameTime = timeGetTime();
 
 
-	gm->Update(deltaTime);
+	//gm->Update(deltaTime);
 
 	if (gm->GetCamera())
 	{
@@ -62,12 +74,12 @@ void TitleScreenState::Update()
 		camera->Update();
 		cameraVec = Vector3(0.0, 0.0, 0.0);
 	}
-	
+
 }
 
 void TitleScreenState::Exit()
 {
-	
+
 	//delete camera;
 	//delete light;
 	gm->DestroyAllObjects();

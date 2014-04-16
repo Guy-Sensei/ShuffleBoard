@@ -8,11 +8,12 @@ InGameState::InGameState()
 	moveTime = 0;
 }
 
-InGameState::InGameState(GameManager& manager)
+InGameState::InGameState(GameManager* manager)
 {
 	gameThrow = 0; 
 	//Initialize variables
-	gm = &manager;
+	gm = manager;
+	gm->InitializePhysics();
 	lastFrameTime = 0;
 	deltaTime = 0;
 	moveTime = 0;

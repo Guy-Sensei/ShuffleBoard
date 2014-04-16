@@ -159,6 +159,7 @@ void GameManager::DestroyAllObjects()
 	}		
 
 	m_objects->clear();
+	//g_engine->clearAllEntities();
 }
 
 void GameManager::DestroyGameObject(int id)
@@ -173,4 +174,9 @@ GameObject* GameManager::CreateGameObject(char *filename)
 	m_objects->push_back(pObject);
 
 	return pObject;
+}
+
+void GameManager::ChangeState(State *newState)
+{
+	
 }

@@ -39,9 +39,10 @@ public:
 	Advanced2D::Audio* GetAudio() { return audio; }
 	void SetCamera(Advanced2D::Camera* cam) { m_camera = cam; }
 	void DebugRender();
-	
+
 	State *GetState(){return gameState;}
-	void SetState(State &newState){gameState = &newState;}
+	void SetState(State *newState){gameState = newState;}
+	void ChangeState (State *newstate);
 
 private:
 	GameObjects* m_objects;
