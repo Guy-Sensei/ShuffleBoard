@@ -21,3 +21,5 @@
 *.app
 
 *.tlog
+*.lastbuildstate
+*.log
