@@ -92,6 +92,19 @@ InGameState::InGameState(GameManager* manager)
 			gm->GetWorld()->addRigidBody(r1[i]->GetRigidBody());
 		}
 	}
+
+	//PowerBar Initialization
+	powerBar = gm->CreateGameObject("PowerBar.bmp");
+	//We are drawing from the bottom left because the bar is drawn upward from the bmp
+	maxPowerBarHeight =  powerBar->GetSprite()->GetTexHeight();
+	powerBar->GetSprite()->setPosition(10.0,( 10.0 + powerBar->GetSprite()->GetTexHeight()));
+	//powerBar->GetSprite()->setPosition(10.0, 300);
+	curPowerBarHeight = initialPowerBarHeight;
+	powerBar->GetSprite()->setHeight(initialPowerBarHeight);
+	//we have to adjust the position of the powerbar as it grows
+	powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+	powerBar->GetSprite()->setBottomLeftOrientation();//We want draw texture from bottom left of the bmp
+
 }
 
 void InGameState::HandleInput(int key, inputStates curState)
@@ -126,6 +139,33 @@ void InGameState::HandleInput(int key, inputStates curState)
 			gameThrow++;
 			if(gameThrow == 7) gameThrow = 6;
 		}	
+		if(key == DIK_UPARROW || key == DIK_UP)
+		{
+			//Imbedded If: Ask if powerbarfull
+			if (curPowerBarHeight < maxPowerBarHeight)
+			{
+				//incriment powerbar height;
+				 curPowerBarHeight += powerBarIncriment;
+				 //Change height of sprite being drawn;
+				 powerBar->GetSprite()->setHeight(curPowerBarHeight);
+				 //we have to adjust the position of the powerbar as it grows
+				 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+			}
+
+		}
+		if(key == DIK_DOWNARROW || key == DIK_DOWN)
+		{
+			//Imbedded If: Ask if powerbarempty
+			if (curPowerBarHeight > 0)
+			{
+				//decriment powerbar height;
+				curPowerBarHeight -= powerBarIncriment;
+				//Change height of sprite being drawn;
+				 powerBar->GetSprite()->setHeight(curPowerBarHeight);
+				 //we have to adjust the position of the powerbar as it grows
+				 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+			}
+		}
 	}
 
 }

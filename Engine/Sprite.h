@@ -19,10 +19,11 @@ namespace Advanced2D {
 		bool imageLoaded;
 		int state;
 		int direction;
-
+		bool orientBottomLeft;
 	protected:
 		Texture *image;
 		int width,height;
+		int texWidth, texHeight;
 		int animcolumns;
 		int framestart,frametimer;
 		int movestart, movetimer;
@@ -47,6 +48,7 @@ namespace Advanced2D {
 		void setX(double x) { position.setX(x); }
 		void setY(double y) { position.setY(y); }
 
+		void setBottomLeftOrientation() {orientBottomLeft = true;}
 		//movement velocity
 		Vector3 getVelocity() { return velocity; }
 		void setVelocity(Vector3 v) { this->velocity = v; }
@@ -54,10 +56,14 @@ namespace Advanced2D {
 	
 		//image size
 		void setSize(int width, int height) { this->width = width; this->height = height; }
+		void setTexSize(int width, int height) { this->texWidth = width; this->texHeight = height; }
 		int getWidth() { return this->width; }
 		void setWidth(int value) { this->width = value; }
 		int getHeight() { return this->height; }
 		void setHeight(int value) { this->height = value; }
+
+		int GetTexWidth()  { return this->texWidth; }
+		int GetTexHeight() { return this->texHeight; }
 
 		int getState() { return state; }
 		void setState(int value) { state = value; }

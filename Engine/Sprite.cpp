@@ -12,6 +12,9 @@ namespace Advanced2D {
 		this->direction = 0;
 		this->width = 1;
 		this->height = 1;
+		this->texWidth = 1;
+		this->texHeight = 1;
+		this->orientBottomLeft = false;
 		this->curframe = 0;
 		this->totalframes = 1;
 		this->animdir = 1;
@@ -44,7 +47,8 @@ namespace Advanced2D {
 		image = new Texture();
 		if (image->Load(filename,transcolor))
 		{
-			this->setSize(image->getWidth(),image->getHeight());
+			this->setTexSize(image->getWidth(),image->getHeight());
+			this->setSize(texWidth,texHeight);
 			imageLoaded = true;
 			return true;
 		}
@@ -74,8 +78,16 @@ namespace Advanced2D {
 	{
 		int fx = (this->curframe % this->animcolumns) * this->width;
 		int fy = (this->curframe / this->animcolumns) * this->height;
-		RECT srcRect = {fx,fy, fx+this->width, fy+this->height};
-
+		RECT srcRect =  {fx,fy, fx+this->width, fy+this->height};
+		if (orientBottomLeft == true)
+		{
+			fy = this->texHeight - this->height;
+			//Adjusted only slightly to make a bottom left orientation
+			RECT newRect = {fx,fy, fx+this->width, fy+this->height};
+			srcRect = newRect;
+			 
+		}
+		
 		this->transform();
 		g_engine->getSpriteHandler()->Draw(this->image->GetTexture(),&srcRect,NULL,NULL,color);
 

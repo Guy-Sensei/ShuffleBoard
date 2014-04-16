@@ -54,6 +54,7 @@ void TitleScreenState::Enter()
 {
 
 	title =  gm->CreateGameObject("title.bmp");
+	//title->GetSprite()->setHeight(600)//Testing for game States
 };
 
 void TitleScreenState::Update()

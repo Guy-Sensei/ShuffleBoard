@@ -23,6 +23,16 @@ public:
 	Light *light1;
 	Light *light2;
 
+	//Jeff: This is related to the powerbar graphic
+	//It is orientened from the bottom left, do not forget this or you will be confused
+	GameObject *powerBar;
+	int curPowerBarHeight;
+	int maxPowerBarHeight;
+	const static int initialPowerBarHeight = 25;
+	const static int powerBarIncriment = 25;
+	const static int powerBar_PosX = 10; //X position of power bar
+	const static int powerBar_PosY = 75; //Y position of power bar
+
 	static const int numberThrow = 6; 
 
 	Rock* r1[numberThrow];
@@ -34,6 +44,8 @@ public:
 	DWORD moveTime;
 	float dt;
 	float previousTime;
+
+	
 
 	int degree;
 	double theta;
@@ -64,6 +76,8 @@ public:
 	void Update();
 	void Enter();
 	void Exit();
+
+	int getPower(){return curPowerBarHeight;}
 };
 
 #endif
