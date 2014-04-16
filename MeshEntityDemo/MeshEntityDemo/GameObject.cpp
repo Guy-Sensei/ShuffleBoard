@@ -6,6 +6,7 @@ GameObject::GameObject(btCollisionShape* pShape,
 					   const btVector3 &initialPosition, 
 					   const btQuaternion &initialRotation) 
 {
+	isSprite = false;
 	m_pShape = pShape;
 	m_color = color;
 
@@ -30,6 +31,16 @@ GameObject::GameObject(btCollisionShape* pShape,
 	m_sprite = NULL;
 }
 
+GameObject::GameObject(char *filename) 
+{
+	isSprite = true;
+	m_pShape = NULL;
+	m_color = btVector3(1,1,1);
+	m_mesh = false;
+	m_sprite = NULL;
+	LoadSprite(filename);
+}
+
 void GameObject::LoadMesh(char *filename)
 {
 	m_mesh = new Advanced2D::Mesh();
@@ -52,7 +63,7 @@ void GameObject::CreateMeshFromShape()
 	float halfHeight;
 	float halfDepth;
 	btVector3 halfSize;
-	
+
 	switch(m_pShape->getShapeType())
 	{
 	case CYLINDER_SHAPE_PROXYTYPE:
@@ -81,7 +92,7 @@ void GameObject::CreateMeshFromShape()
 	m_mesh->setObjectType(Advanced2D::RENDER3D);
 	renderType = Advanced2D::RENDER3D;
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
-	
+
 	g_engine->addEntity(m_mesh);
 }
 
@@ -95,10 +106,21 @@ void GameObject::LoadSprite(char *filename)
 }
 
 GameObject::~GameObject() {
-	delete m_entity;
-	delete m_pBody;
-	delete m_pMotionState;
-	delete m_pShape;
-	delete m_mesh;
-	delete m_sprite;
+
+	switch (renderType)
+	{
+	case Advanced2D::RENDER3D:
+		delete m_pBody;
+		delete m_pMotionState;
+		delete m_pShape;
+		m_mesh->setAlive(false);
+		break;
+
+	case Advanced2D::RENDER2D:
+		m_sprite->setAlive(false);
+		break;
+
+	default:
+		break;
+	}
 }

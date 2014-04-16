@@ -40,14 +40,17 @@ void GameManager::Update(float dt)
 	for(GameObjects::iterator i = m_objects->begin(); i != m_objects->end(); ++i)
 	{
 		GameObject* pObj = *i;
-
-		btTransform transform = pObj->GetRigidBody()->getWorldTransform();
-		btVector3 v = transform.getOrigin();
-		Advanced2D::Mesh *mesh = pObj->GetMesh();
-
-		if (mesh)
+		//If the object is not a sprite a physics update is performed
+		if (pObj->getIsSprite() == false)
 		{
-			mesh->SetPosition(v.x(), v.y(), v.z());
+			btTransform transform = pObj->GetRigidBody()->getWorldTransform();
+			btVector3 v = transform.getOrigin();
+			Advanced2D::Mesh *mesh = pObj->GetMesh();
+
+			if (mesh)
+			{
+				mesh->SetPosition(v.x(), v.y(), v.z());
+			}
 		}
 	}
 }
@@ -156,9 +159,24 @@ void GameManager::DestroyAllObjects()
 	}		
 
 	m_objects->clear();
+	//g_engine->clearAllEntities();
 }
 
 void GameManager::DestroyGameObject(int id)
 {
 
+}
+
+GameObject* GameManager::CreateGameObject(char *filename) 
+{
+
+	GameObject* pObject = new GameObject(filename);
+	m_objects->push_back(pObject);
+
+	return pObject;
+}
+
+void GameManager::ChangeState(State *newState)
+{
+	
 }

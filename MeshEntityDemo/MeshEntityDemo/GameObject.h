@@ -9,6 +9,7 @@
 class GameObject
 {
 public:
+	GameObject(char *filename);//Sprite Constructor
 	GameObject(btCollisionShape* pShape, float mass, const btVector3 &color, const btVector3 &initialPosition = btVector3(0,0,0), const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 	~GameObject();
 
@@ -30,7 +31,7 @@ public:
 
 	// Physics
 	btCollisionShape* GetShape() { return m_pShape; }
-	btRigidBody* GetRigidBody() { return m_pBody; }
+ 	btRigidBody* GetRigidBody() { return m_pBody; }
 	btMotionState* GetMotionState() { return m_pMotionState; }
 
 	void GetTransform(btScalar* transform)
@@ -39,8 +40,10 @@ public:
 	}
 
 	btVector3 GetColor() { return m_color; }
+	bool getIsSprite(){return isSprite;}
 
 protected:
+	bool isSprite;
 	Advanced2D::Entity *m_entity;
 	Advanced2D::Mesh *m_mesh;
 	Advanced2D::Sprite *m_sprite;

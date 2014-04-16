@@ -1,14 +1,43 @@
+//Include Guards
+#ifndef TITLESCREEN_H
+#define TITLESCREEN_H
+
 #pragma once
-#include "MasterGameState.h"
+
+
+
+#include "State.h"
+#include "InGameState.h"
+#include "GameManager.h"
+#include "..\..\Engine\Advanced2D.h"
+#include "Rock.h"
+#include "Player.h"
+using namespace Advanced2D;
+
+class GameManager;
+
 class TitleScreenState :
-	public MasterGameState
+	public State
 {
 public:
-	TitleScreenState();
-	~TitleScreenState();
-	virtual void HandleInput();
-	virtual void Update();
-	virtual void Enter();
-	virtual void Exit();
+	GameObject *title;
+	Camera *camera;
+	Vector3 cameraVec;
+	Light *light;
+	DWORD lastFrameTime;
+	DWORD deltaTime;
+	DWORD moveTime;
+	float dt;
+	float previousTime;
+
+	TitleScreenState(){};
+	TitleScreenState(GameManager* manager);
+	~TitleScreenState(){};
+	void HandleInput(int key, inputStates curState);
+	void Update();
+	void Enter();
+	void Exit();
 };
+
+#endif
 

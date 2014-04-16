@@ -4,11 +4,13 @@
 #pragma once
 
 #include "..\..\Engine\Advanced2D.h"
-#include "BulletDynamics/Dynamics/btDynamicsWorld.h"
+#include "..\..\Common\BulletDynamics/Dynamics/btDynamicsWorld.h"
 #include "GameObject.h"
 #include <vector>
 
 typedef std::vector<GameObject*> GameObjects;
+
+class State;
 
 class GameManager
 {
@@ -23,6 +25,8 @@ public:
 		const btVector3 &initialPosition = btVector3(0.0f,0.0f,0.0f), 
 		const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 
+	GameObject* CreateGameObject(char *filename);
+
 	btDynamicsWorld* GetWorld() { return m_pWorld; }
 	GameObjects* GetObjects() { return m_objects; }
 
@@ -36,8 +40,13 @@ public:
 	void SetCamera(Advanced2D::Camera* cam) { m_camera = cam; }
 	void DebugRender();
 
+	State *GetState(){return gameState;}
+	void SetState(State *newState){gameState = newState;}
+	void ChangeState (State *newstate);
+
 private:
 	GameObjects* m_objects;
+	State *gameState;
 	Advanced2D::Camera *m_camera;
 
 	Advanced2D::Audio* audio;

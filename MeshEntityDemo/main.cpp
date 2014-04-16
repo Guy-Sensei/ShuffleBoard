@@ -11,11 +11,15 @@ Description: Demonstrates managed mesh entities
 
 #include "MeshEntityDemo\Player.h"
 
-
+#include "MeshEntityDemo\InGameState.h"
+#include "MeshEntityDemo\TitleScreenState.h"
 using namespace Advanced2D;
 
-Audio* audio;
+
+
 GameManager* gm;
+/*
+Audio* audio;
 Camera *camera;
 Vector3 cameraVec;
 Light *light1;
@@ -56,7 +60,7 @@ btVector3 secondPosition;
 
 
 int gameThrow;
-
+*/
 int Time()
 {
 	time_t int_time;
@@ -77,10 +81,16 @@ bool game_preload()
 
 bool game_init(HWND) 
 {
-	gameThrow = 0; 
+	
 
 	gm = new GameManager();
-	gm->InitializePhysics();
+	State *newState = new TitleScreenState(gm);
+	gm->SetState(newState);
+	gm->GetState()->Enter();
+
+
+	//gameThrow = 0; 
+	/*
 	gm->GetAudio()->Load("music.mp3", "music");
 	gm->GetAudio()->Play("music");
 	//set the camera and perspective
@@ -155,24 +165,28 @@ bool game_init(HWND)
 			gm->GetWorld()->addRigidBody(r1[i]->GetRigidBody());
 		}
 	}
-	
+	*/
 	return 1;
 }
 
 void game_update() 
 {
+
+	gm->GetState()->Update();
+	/*
+
 	if(lastFrameTime == 0)
 		lastFrameTime = timeGetTime();
 
 	deltaTime = timeGetTime() - lastFrameTime;
 	lastFrameTime = timeGetTime();
 
-//	degree = degree + 1;
+	//	degree = degree + 1;
 	if(degree >= 360) degree = 0;
 	theta = degree*3.1415/180;
 	
 	
-	
+	*/
 	/*
 	while(round_state <= ROUND_MAX)
 	{
@@ -197,6 +211,7 @@ void game_update()
 		round_state++;
 	}
 	*/
+	/*
 	gm->Update(deltaTime);
 
 	if (gm->GetCamera())
@@ -204,6 +219,7 @@ void game_update()
 		camera->setTarget(cos(theta)+1, 0, sin(theta)+40);
 		camera->Update();
 	}
+	*/
 }
 
 int evaluateScore()
@@ -225,7 +241,8 @@ void game_render3d()
 
 void game_keyRelease(int key) 
 { 
-
+	gm->GetState()->HandleInput(key, State::KEYRELEASE);
+	/*
 	if (key == DIK_ESCAPE)
 	{
 		gm->DestroyAllObjects();
@@ -241,7 +258,8 @@ void game_keyRelease(int key)
 		r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
 		gameThrow++;
 		if(gameThrow == 7) gameThrow = 6;
-	}	
+	}
+	*/
 }
 
 void game_entityUpdate(Advanced2D::Entity* entity) 
@@ -275,15 +293,18 @@ void game_entityRender(Advanced2D::Entity* entity)
 
 void game_end() 
 {
-	delete camera;
-	delete light1;
-	delete light2;
+	//delete camera;
+	//delete light1;
+	//delete light2;
 }
 
 void game_render2d() { }
 
 void game_keyPress(int key) 
 {
+
+	gm->GetState()->HandleInput(key, State::KEYDOWN);
+	/*
 	if(key == DIK_LEFTARROW)
 	{
 		if(degree > -180) degree = degree - 2;
@@ -292,6 +313,7 @@ void game_keyPress(int key)
 	{
 		if(degree < 0) degree = degree + 2;
 	}
+	*/
 
 }
 
