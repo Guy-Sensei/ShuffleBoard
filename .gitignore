@@ -21,3 +21,11 @@
 *.app
 
 *.tlog
+*.sdf
+*.log
+*.lastbuildstate
+*.idb
+*.pdb
+*.suo
+*.ilk
+*.opensdf
