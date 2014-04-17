@@ -74,7 +74,8 @@ InGameState::InGameState(GameManager* manager)
 	colorP2.b = 0;
 	colorP2.a = 0;
 
-	startPosition = btVector3(1, -9, 20);
+	startPosition = btVector3(2, -8, 20);
+	secondPosition = btVector3(0, -8, 20);
 	//secondPosition = btVector3(120, 120, 120);
 
 
@@ -85,7 +86,7 @@ InGameState::InGameState(GameManager* manager)
 		if(i%2 == 0) 
 			r1[i] = new Rock(colorP1, startPosition);	
 		else
-			r1[i] = new Rock(colorP2, startPosition);
+			r1[i] = new Rock(colorP2, secondPosition);
 
 		gm->GetObjects()->push_back(r1[i]);
 
@@ -136,7 +137,7 @@ void InGameState::HandleInput(int key, inputStates curState)
 			direction = btVector3(camera->getTarget().x - camera->getPosition().x, camera->getTarget().y - camera->getPosition().y, camera->getTarget().z - camera->getPosition().z); //
 			btVector3 velocity = direction;
 			velocity.normalize();
-			velocity *= 15.0f;
+			velocity *= 10.0f+curPowerBarHeight/10;
 			r1[gameThrow]->GetRigidBody()->forceActivationState(ACTIVE_TAG);
 			r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
 			gameThrow++;
@@ -207,31 +208,6 @@ void InGameState::Update()
 	theta = degree*3.1415/180;
 
 	
-
-	/*
-	while(round_state <= ROUND_MAX)
-	{
-	//while(player2.throw_state <= THROW_MAX)
-	{
-	if(deltaTime >= 10)
-	{
-	if(playerstate == PlayerState::P1)
-	{
-	player1.throw_state++;
-	playerstate = PlayerState::P2;
-	}
-	else
-	{
-	player2.throw_state++;
-	playerstate = PlayerState::P1;
-	}
-	//deltaTime = 0;
-	}
-
-	}
-	round_state++;
-	}
-	*/
 	gm->Update(deltaTime);
 	//gm->DebugRender();
 
