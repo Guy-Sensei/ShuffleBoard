@@ -50,7 +50,7 @@ InGameState::InGameState(GameManager* manager)
 
 
 	GameObject* ground;	
-	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,5,100)), 0, btVector3(255.0f, 255.0f, 255.0f), btVector3(1, -10.0f, 0.0f));
+	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,7,100)), 0, btVector3(1, -10.0f, 0.0f));
 	ground->CreateMeshFromShape();
 
 	D3DCOLORVALUE groundColor;
@@ -72,7 +72,7 @@ InGameState::InGameState(GameManager* manager)
 	colorP2.b = 0;
 	colorP2.a = 0;
 
-	startPosition = btVector3(0, 0, 1);
+	startPosition = btVector3(1, -9, 20);
 	//secondPosition = btVector3(120, 120, 120);
 
 
@@ -135,9 +135,10 @@ void InGameState::HandleInput(int key, inputStates curState)
 			btVector3 velocity = direction;
 			velocity.normalize();
 			velocity *= 15.0f;
+			r1[gameThrow]->GetRigidBody()->forceActivationState(ACTIVE_TAG);
 			r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
 			gameThrow++;
-			if(gameThrow == 7) gameThrow = 6;
+			if(gameThrow == 6) gameThrow = 0;
 		}	
 		if(key == DIK_UPARROW || key == DIK_UP)
 		{

@@ -6,7 +6,7 @@
 #pragma message ("State is included")
 #include "GameManager.h"
 
-class GameManager;
+//class GameManager;
 
 class State
 {
@@ -14,7 +14,7 @@ public:
 	GameManager *gm;//Reference to GameManager
 	enum inputStates{KEYDOWN, KEYRELEASE};
 	State(){};
-	State(GameManager& manager){};
+	//State(GameManager& manager){};
 	virtual ~State(){};
 	virtual void HandleInput(int key, inputStates curState){};
 	

@@ -14,7 +14,7 @@
 #include "Player.h"
 using namespace Advanced2D;
 
-class GameManager;
+//class GameManager;
 
 class TitleScreenState :
 	public State

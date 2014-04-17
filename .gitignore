@@ -18,6 +18,7 @@
 *.lastbuildstate
 *.sdf
 *.pdb
+*.opensdf
 
 # Executables
 *.exe

@@ -116,12 +116,11 @@ void GameManager::DrawLine(LPD3DXLINE line, D3DXMATRIX *camProj, D3DCOLOR color,
 
 GameObject* GameManager::CreateGameObject(btCollisionShape* pShape, 
 										  const float &mass, 
-										  const btVector3 &color, 
 										  const btVector3 &initialPosition, 
 										  const btQuaternion &initialRotation) 
 {
 
-	GameObject* pObject = new GameObject(pShape, mass, color, initialPosition, initialRotation);
+	GameObject* pObject = new GameObject(pShape, mass, initialPosition, initialRotation);
 	m_objects->push_back(pObject);
 
 	if (m_pWorld)

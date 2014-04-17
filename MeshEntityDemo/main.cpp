@@ -81,8 +81,6 @@ bool game_preload()
 
 bool game_init(HWND) 
 {
-	
-
 	gm = new GameManager();
 	State *newState = new TitleScreenState(gm);
 	gm->SetState(newState);

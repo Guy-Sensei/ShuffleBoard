@@ -10,7 +10,7 @@ class GameObject
 {
 public:
 	GameObject(char *filename);//Sprite Constructor
-	GameObject(btCollisionShape* pShape, float mass, const btVector3 &color, const btVector3 &initialPosition = btVector3(0,0,0), const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
+	GameObject(btCollisionShape* pShape, float mass, const btVector3 &initialPosition = btVector3(0,0,0), const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 	~GameObject();
 
 	// 2D Sprite
@@ -52,5 +52,7 @@ protected:
 	btRigidBody*    m_pBody;
 	DMotionState*  m_pMotionState;
 	btVector3      m_color;
+	btTransform m_temptransform;
+	btVector3 m_tempvector;
 };
 #endif

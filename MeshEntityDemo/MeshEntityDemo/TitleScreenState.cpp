@@ -33,13 +33,9 @@ void TitleScreenState::HandleInput(int key, inputStates curState)
 			// call exit function on this state
 			this->Exit();
 
-			// Destroy all objects
-			gm->DestroyAllObjects();
-
 			// change the state
 			InGameState *tempstate = new InGameState(gm);
-			State *newState = tempstate;
-			gm->SetState(newState);
+			gm->SetState(tempstate);
 
 			// call the Enter function of the new state
 			gm->GetState()->Enter();
