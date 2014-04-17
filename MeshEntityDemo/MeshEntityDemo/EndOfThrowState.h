@@ -1,26 +1,33 @@
+//EACH THROW STATE IS INCLUDED IN THE INGAME STATE
+//Include Guards
+#ifndef ENDOFTHROWSTATE_H
+#define ENDOFTHROWSTATE_H
 #pragma once
+#include "State.h"
+#include "PlaySequenceState.h"
 #include "InGameState.h"
+#include "GameManager.h"
+#include "..\..\Engine\Advanced2D.h"
+#include "Rock.h"
+#include "Player.h"
+
+using namespace Advanced2D;
+
+class GameManager;
+class InGameState;
+
 class EndOfThrowState :
-	public InGameState
+	public PlaySequenceState
 {
 public:
-
-	EndOfThrowState()
-	{
-	}
-
-	~EndOfThrowState()
-	{
-	}
-
-	virtual void HandleInput()
-	{
-		// pause and wait for next player to confirm
-	}
-
-	virtual void Update();
-	virtual void Enter();
-	virtual void Exit();
-
+	EndOfThrowState();
+	EndOfThrowState(GameManager* manager, InGameState *curInGameStateManager);
+	~EndOfThrowState(){};
+	void HandleInput(int key, inputStates curState);
+	void Update();
+	void Enter();
+	void Exit();
 };
+
+#endif
 

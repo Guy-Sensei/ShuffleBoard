@@ -15,6 +15,7 @@
 using namespace Advanced2D;
 
 class GameManager;
+class InGameState;
 
 class TitleScreenState :
 	public State

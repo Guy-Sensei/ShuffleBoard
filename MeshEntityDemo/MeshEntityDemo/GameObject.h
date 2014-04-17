@@ -34,6 +34,8 @@ public:
  	btRigidBody* GetRigidBody() { return m_pBody; }
 	btMotionState* GetMotionState() { return m_pMotionState; }
 
+	Advanced2D::Entity& GetEntity() {return *m_entity;}
+
 	void GetTransform(btScalar* transform)
 	{ 
 		if (m_pMotionState) m_pMotionState->GetWorldTransform(transform); 

@@ -3,6 +3,7 @@
 #define InGameState_H
 #pragma once
 #include "State.h"
+#include "PlaySequenceState.h"
 #include "..\..\Engine\Advanced2D.h"
 #include "GameManager.h"
 #include "Rock.h"
@@ -10,6 +11,7 @@
 
 using namespace Advanced2D;
 class GameManager;
+class PlaySequenceState;
 
 class InGameState :
 	 public State
@@ -22,7 +24,7 @@ public:
 	Vector3 cameraVec;
 	Light *light1;
 	Light *light2;
-
+	PlaySequenceState *playState;
 	//Jeff: This is related to the powerbar graphic
 	//It is orientened from the bottom left, do not forget this or you will be confused
 	GameObject *powerBar;
@@ -77,7 +79,12 @@ public:
 	void Enter();
 	void Exit();
 
+
+	//PowerBarRelated
+	void setPowerBarVis(bool vis);//Tells wether to draw powerbar
 	int getPower(){return curPowerBarHeight;}
+	void incrimentPowerBar();
+	void decrimentPowerBar();
 };
 
 #endif

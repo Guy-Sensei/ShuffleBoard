@@ -16,6 +16,9 @@
     <Filter Include="Header Files\StateMachine">
       <UniqueIdentifier>{ddd35745-395e-496c-9110-f4c8beb62e72}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\PlayerData">
+      <UniqueIdentifier>{ef310aeb-a325-4799-a114-88b57c74b8ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp">
@@ -37,6 +40,21 @@
       <Filter>Header Files\StateMachine</Filter>
     </ClCompile>
     <ClCompile Include="TitleScreenState.cpp">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="AimState.cpp">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerData.cpp">
+      <Filter>Header Files\PlayerData</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaySequenceState.cpp">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="EndOfThrowState.cpp">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowState.cpp">
       <Filter>Header Files\StateMachine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -85,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerData.h">
+      <Filter>Header Files\PlayerData</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaySequenceState.h">
+      <Filter>Header Files\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

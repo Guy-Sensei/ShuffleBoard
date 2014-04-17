@@ -1,4 +1,6 @@
 #include "InGameState.h"
+#include "AimState.h"
+#include "ThrowState.h"
 //#include "GameManager.h"
 
 InGameState::InGameState()
@@ -105,10 +107,14 @@ InGameState::InGameState(GameManager* manager)
 	powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
 	powerBar->GetSprite()->setBottomLeftOrientation();//We want draw texture from bottom left of the bmp
 
+	playState = new AimState(gm, this);
+	playState->Enter();
+
 }
 
 void InGameState::HandleInput(int key, inputStates curState)
 {
+	playState->HandleInput(key, curState);
 	if (curState == KEYDOWN)
 	{
 		if(key == DIK_LEFTARROW)
@@ -119,6 +125,7 @@ void InGameState::HandleInput(int key, inputStates curState)
 		{
 			if(degree < 0) degree = degree + 2;
 		}
+
 	}
 	if (curState == KEYRELEASE)
 	{
@@ -139,33 +146,7 @@ void InGameState::HandleInput(int key, inputStates curState)
 			gameThrow++;
 			if(gameThrow == 7) gameThrow = 6;
 		}	
-		if(key == DIK_UPARROW || key == DIK_UP)
-		{
-			//Imbedded If: Ask if powerbarfull
-			if (curPowerBarHeight < maxPowerBarHeight)
-			{
-				//incriment powerbar height;
-				 curPowerBarHeight += powerBarIncriment;
-				 //Change height of sprite being drawn;
-				 powerBar->GetSprite()->setHeight(curPowerBarHeight);
-				 //we have to adjust the position of the powerbar as it grows
-				 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
-			}
 
-		}
-		if(key == DIK_DOWNARROW || key == DIK_DOWN)
-		{
-			//Imbedded If: Ask if powerbarempty
-			if (curPowerBarHeight > 0)
-			{
-				//decriment powerbar height;
-				curPowerBarHeight -= powerBarIncriment;
-				//Change height of sprite being drawn;
-				 powerBar->GetSprite()->setHeight(curPowerBarHeight);
-				 //we have to adjust the position of the powerbar as it grows
-				 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
-			}
-		}
 	}
 
 }
@@ -229,4 +210,50 @@ void InGameState::Exit()
 	delete light1;
 	delete light2;
 	gm->DestroyAllObjects();
+}
+
+void InGameState::setPowerBarVis(bool vis)
+{
+
+	if(vis == false)
+	{
+			bool TF = false;
+			powerBar->GetEntity().setVisible(TF);
+				
+	}
+	if(vis == true)
+	{
+			bool TF = true;
+			powerBar->GetEntity().setVisible(TF);
+				
+	}
+}
+
+void InGameState::incrimentPowerBar()
+{
+	//Imbedded If: Ask if powerbarfull
+	if (curPowerBarHeight < maxPowerBarHeight)
+	{
+		//incriment powerbar height;
+		curPowerBarHeight += powerBarIncriment;
+		//Change height of sprite being drawn;
+		powerBar->GetSprite()->setHeight(curPowerBarHeight);
+		//we have to adjust the position of the powerbar as it grows
+		 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+	}
+
+}
+
+void InGameState::decrimentPowerBar()
+{
+	//Imbedded If: Ask if powerbarempty
+	if (curPowerBarHeight > 0)
+	{
+		//decriment powerbar height;
+		curPowerBarHeight -= powerBarIncriment;
+		//Change height of sprite being drawn;
+		powerBar->GetSprite()->setHeight(curPowerBarHeight);
+		//we have to adjust the position of the powerbar as it grows
+		powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+	}
 }

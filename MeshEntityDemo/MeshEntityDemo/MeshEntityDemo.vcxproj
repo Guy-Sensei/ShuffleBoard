@@ -65,7 +65,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>fmodexL_vc.lib;BulletCollision_vs2010_debug.lib;BulletDynamics_vs2010_debug.lib;LinearMath_vs2010_debug.lib;..\..\Engine\lib\debug\Advanced2D.lib;d3d9.lib;d3dx9.lib;dinput8.lib;dxguid.lib;winmm.lib;xinput.lib;Strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -85,15 +85,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>fmodex_vc.lib;BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;LinearMath_vs2010.lib;..\..\Engine\lib\Advanced2D.lib;d3d9.lib;d3dx9.lib;dinput8.lib;dxguid.lib;winmm.lib;xinput.lib;Strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="AimState.cpp" />
+    <ClCompile Include="EndOfThrowState.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InGameState.cpp" />
+    <ClCompile Include="PlayerData.cpp" />
+    <ClCompile Include="PlaySequenceState.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="ShuffleBoardGame.cpp" />
+    <ClCompile Include="ThrowState.cpp" />
     <ClCompile Include="TitleScreenState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +112,9 @@
     <ClInclude Include="InGameState.h" />
     <ClInclude Include="MasterGameState.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerData.h" />
     <ClInclude Include="PlayerState.h" />
+    <ClInclude Include="PlaySequenceState.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="ShuffleBoardGame.h" />
     <ClInclude Include="State.h" />

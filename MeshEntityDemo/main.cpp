@@ -13,6 +13,11 @@ Description: Demonstrates managed mesh entities
 
 #include "MeshEntityDemo\InGameState.h"
 #include "MeshEntityDemo\TitleScreenState.h"
+#include "MeshEntityDemo\PlaySequenceState.h"
+#include "MeshEntityDemo\AimState.h"
+#include "MeshEntityDemo\EndOfThrowState.h"
+#include "MeshEntityDemo\ThrowState.h"
+
 using namespace Advanced2D;
 
 

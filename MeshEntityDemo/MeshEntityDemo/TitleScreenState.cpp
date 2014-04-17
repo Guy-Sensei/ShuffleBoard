@@ -27,25 +27,11 @@ void TitleScreenState::HandleInput(int key, inputStates curState)
 	{
 		if (key == DIK_SPACE)
 		{
-			// pause the rendering engine
-			g_engine->setPaused(true);
-
+			
 			// call exit function on this state
 			this->Exit();
 
-			// Destroy all objects
-			gm->DestroyAllObjects();
 
-			// change the state
-			InGameState *tempstate = new InGameState(gm);
-			State *newState = tempstate;
-			gm->SetState(newState);
-
-			// call the Enter function of the new state
-			gm->GetState()->Enter();
-
-			// resume rendering engine
-			g_engine->setPaused(false);
 		}
 	}
 }
@@ -80,9 +66,22 @@ void TitleScreenState::Update()
 
 void TitleScreenState::Exit()
 {
+			// pause the rendering engine
+			g_engine->setPaused(true);
 
-	//delete camera;
-	//delete light;
-	gm->DestroyAllObjects();
+
+			// Destroy all objects
+			gm->DestroyAllObjects();
+
+			// change the state
+			InGameState *tempstate = new InGameState(gm);
+			State *newState = tempstate;
+			gm->SetState(newState);
+
+			// call the Enter function of the new state
+			gm->GetState()->Enter();
+
+			// resume rendering engine
+			g_engine->setPaused(false);
 }
 

@@ -39,6 +39,7 @@ GameObject::GameObject(char *filename)
 	m_mesh = false;
 	m_sprite = NULL;
 	LoadSprite(filename);
+
 }
 
 void GameObject::LoadMesh(char *filename)
@@ -102,6 +103,7 @@ void GameObject::LoadSprite(char *filename)
 	m_sprite->loadImage(filename);
 	m_sprite->setObjectType(Advanced2D::RENDER2D);
 	renderType = Advanced2D::RENDER2D;
+	m_entity = m_sprite;
 	g_engine->addEntity(m_sprite);
 }
 
