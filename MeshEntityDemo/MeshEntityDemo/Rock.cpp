@@ -7,7 +7,7 @@
 Rock::Rock(D3DCOLORVALUE color, const btVector3 &startPos) : 
 	GameObject(
 	new btCylinderShape(btVector3(1.5, 1, 1)),
-	15, 
+	10, 
 	startPos, 
 	btQuaternion((90), (0), (1), (0))
 	)
@@ -28,7 +28,7 @@ Rock::Rock(D3DCOLORVALUE color, const btVector3 &startPos) :
 	GetMesh()->SetColour(diffColor, Advanced2D::Mesh::MT_DIFFUSE);
 	GetMesh()->SetColour(ambColor,Advanced2D::Mesh::MT_AMBIENT);
 	GetMesh()->SetRotation(0, 90, 0);
-	
+	//GetRigidBody()->setWorldTransform(btTransform(
 }
 
 

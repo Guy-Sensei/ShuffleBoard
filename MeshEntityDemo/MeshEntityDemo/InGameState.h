@@ -76,7 +76,7 @@ public:
 	void Update();
 	void Enter();
 	void Exit();
-
+	void DrawAimLine();
 	int getPower(){return curPowerBarHeight;}
 };
 

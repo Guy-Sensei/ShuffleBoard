@@ -42,6 +42,7 @@ public:
 	State *GetState(){return gameState;}
 	void SetState(State *newState){gameState = newState;}
 	void ChangeState (State *newstate);
+	void DrawLine(LPD3DXLINE line, D3DXMATRIX *camProj, D3DCOLOR color, float v1_x, float v1_y, float v1_z, float v2_x, float v2_y, float v2_z);
 
 private:
 	GameObjects* m_objects;
@@ -57,7 +58,7 @@ private:
 	btDynamicsWorld* m_pWorld;
 
 	void DrawBox(GameObject *gameObject);
-	void DrawLine(LPD3DXLINE line, D3DXMATRIX *camProj, D3DCOLOR color, float v1_x, float v1_y, float v1_z, float v2_x, float v2_y, float v2_z);
+	
 
 };
 

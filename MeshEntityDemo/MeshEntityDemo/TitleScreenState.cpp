@@ -23,7 +23,7 @@ TitleScreenState::TitleScreenState(GameManager* manager)
 
 void TitleScreenState::HandleInput(int key, inputStates curState)
 {
-	if (curState == KEYDOWN)
+	if (curState == KEYRELEASE)
 	{
 		if (key == DIK_SPACE)
 		{

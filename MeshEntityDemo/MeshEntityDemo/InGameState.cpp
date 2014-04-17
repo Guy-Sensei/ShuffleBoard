@@ -50,7 +50,7 @@ InGameState::InGameState(GameManager* manager)
 
 
 	GameObject* ground;	
-	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,7,100)), 0, btVector3(1, -10.0f, 0.0f));
+	ground = gm->CreateGameObject(new btBoxShape(btVector3(1,7,300)), 0, btVector3(1, -10.0f, -270.0f));
 	ground->CreateMeshFromShape();
 
 	D3DCOLORVALUE groundColor;
@@ -61,6 +61,8 @@ InGameState::InGameState(GameManager* manager)
 	ground->GetMesh()->SetColour(groundColor, Mesh::MT_DIFFUSE);
 	ground->GetMesh()->SetColour(groundColor, Mesh::MT_AMBIENT);
 	ground->GetMesh()->SetColour(groundColor, Mesh::MT_SPECULAR);
+	ground->GetRigidBody()->setFriction(0.1);
+	ground->GetRigidBody()->setRestitution(0.1);
 
 	colorP1.r = 1;
 	colorP1.g = 0;
@@ -84,9 +86,9 @@ InGameState::InGameState(GameManager* manager)
 			r1[i] = new Rock(colorP1, startPosition);	
 		else
 			r1[i] = new Rock(colorP2, startPosition);
-	
+
 		gm->GetObjects()->push_back(r1[i]);
-	
+
 		if (gm->GetWorld())
 		{
 			gm->GetWorld()->addRigidBody(r1[i]->GetRigidBody());
@@ -122,7 +124,7 @@ void InGameState::HandleInput(int key, inputStates curState)
 	}
 	if (curState == KEYRELEASE)
 	{
-		
+
 		if (key == DIK_ESCAPE)
 		{
 			gm->DestroyAllObjects();
@@ -146,11 +148,11 @@ void InGameState::HandleInput(int key, inputStates curState)
 			if (curPowerBarHeight < maxPowerBarHeight)
 			{
 				//incriment powerbar height;
-				 curPowerBarHeight += powerBarIncriment;
-				 //Change height of sprite being drawn;
-				 powerBar->GetSprite()->setHeight(curPowerBarHeight);
-				 //we have to adjust the position of the powerbar as it grows
-				 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+				curPowerBarHeight += powerBarIncriment;
+				//Change height of sprite being drawn;
+				powerBar->GetSprite()->setHeight(curPowerBarHeight);
+				//we have to adjust the position of the powerbar as it grows
+				powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
 			}
 
 		}
@@ -162,13 +164,34 @@ void InGameState::HandleInput(int key, inputStates curState)
 				//decriment powerbar height;
 				curPowerBarHeight -= powerBarIncriment;
 				//Change height of sprite being drawn;
-				 powerBar->GetSprite()->setHeight(curPowerBarHeight);
-				 //we have to adjust the position of the powerbar as it grows
-				 powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+				powerBar->GetSprite()->setHeight(curPowerBarHeight);
+				//we have to adjust the position of the powerbar as it grows
+				powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
 			}
 		}
 	}
 
+}
+
+void InGameState::DrawAimLine()
+{
+	LPD3DXLINE line;
+	D3DXCreateLine(g_engine->getDevice(), &line);
+	
+
+	D3DCOLOR color = D3DCOLOR_ARGB(255, 0, 255, 255);
+	D3DXMATRIX cameraProj = camera->getViewMatrix() * camera->getProjectionMatrix();
+
+	line->SetWidth(1.0f);
+	line->Begin();
+
+	D3DXVECTOR3 lineSet[2] = {D3DXVECTOR3(camera->getX(), camera->getY(), camera->getZ()), D3DXVECTOR3(camera->getX(), camera->getY(), -100.0f)};
+	line->DrawTransform(lineSet, 2, &cameraProj, color);
+
+	line->End();
+	line->Release();
+
+	
 }
 
 void InGameState::Update()
@@ -182,40 +205,43 @@ void InGameState::Update()
 	//	degree = degree + 1;
 	if(degree >= 360) degree = 0;
 	theta = degree*3.1415/180;
+
 	
-	
-	
+
 	/*
 	while(round_state <= ROUND_MAX)
 	{
-		//while(player2.throw_state <= THROW_MAX)
-		{
-			if(deltaTime >= 10)
-			{
-				if(playerstate == PlayerState::P1)
-				{
-					player1.throw_state++;
-					playerstate = PlayerState::P2;
-				}
-				else
-				{
-					player2.throw_state++;
-					playerstate = PlayerState::P1;
-				}
-				//deltaTime = 0;
-			}
-			
-		}
-		round_state++;
+	//while(player2.throw_state <= THROW_MAX)
+	{
+	if(deltaTime >= 10)
+	{
+	if(playerstate == PlayerState::P1)
+	{
+	player1.throw_state++;
+	playerstate = PlayerState::P2;
+	}
+	else
+	{
+	player2.throw_state++;
+	playerstate = PlayerState::P1;
+	}
+	//deltaTime = 0;
+	}
+
+	}
+	round_state++;
 	}
 	*/
 	gm->Update(deltaTime);
+	//gm->DebugRender();
 
 	if (gm->GetCamera())
 	{
 		camera->setTarget(cos(theta)+1, 0, sin(theta)+40);
 		camera->Update();
 	}
+
+	DrawAimLine();
 };
 
 void InGameState::Enter()
@@ -225,7 +251,7 @@ void InGameState::Enter()
 
 void InGameState::Exit()
 {
-	
+
 	delete camera;
 	delete light1;
 	delete light2;
