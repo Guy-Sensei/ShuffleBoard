@@ -7,25 +7,17 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-
+*.dll
 
 # Compiled Static libraries
 *.lai
 *.la
 *.a
-
+*.tlog
+*.log
+*.lastbuildstate
 
 # Executables
 *.exe
 *.out
 *.app
-
-*.tlog
-*.sdf
-*.log
-*.lastbuildstate
-*.idb
-*.pdb
-*.suo
-*.ilk
-*.opensdf
