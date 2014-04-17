@@ -57,6 +57,9 @@
     <ClCompile Include="ThrowState.cpp">
       <Filter>Header Files\StateMachine</Filter>
     </ClCompile>
+    <ClCompile Include="InstructionsState.cpp">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rock.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files\PlayerData</Filter>
     </ClInclude>
     <ClInclude Include="PlaySequenceState.h">
+      <Filter>Header Files\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="InstructionsState.h">
       <Filter>Header Files\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,7 +26,7 @@ public:
 	Light *light2;
 	PlaySequenceState *playState;
 	//Jeff: This is related to the powerbar graphic
-	//It is orientened from the bottom left, do not forget this or you will be confused
+	//It is orientened from the bottom left of the texture, do not forget this or you will be confused
 	GameObject *powerBar;
 	int curPowerBarHeight;
 	int maxPowerBarHeight;
@@ -34,6 +34,14 @@ public:
 	const static int powerBarIncriment = 25;
 	const static int powerBar_PosX = 10; //X position of power bar
 	const static int powerBar_PosY = 75; //Y position of power bar
+
+
+	//This is Gui Stuff Related to the Player's Turn
+	GameObject *turnGraphic;
+	GameObject *p1Graphic;
+	GameObject *p2Graphic;
+	const static int turnGraphicX = 10;//Distance from right side//Right Align
+
 
 	static const int numberThrow = 6; 
 
@@ -85,6 +93,7 @@ public:
 	int getPower(){return curPowerBarHeight;}
 	void incrimentPowerBar();
 	void decrimentPowerBar();
+	void ChangePlayerTurn();
 };
 
 #endif

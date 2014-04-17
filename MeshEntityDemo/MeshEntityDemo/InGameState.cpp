@@ -8,6 +8,7 @@ InGameState::InGameState()
 	lastFrameTime = 0;
 	deltaTime = 0;
 	moveTime = 0;
+	playerstate = P1;
 }
 
 InGameState::InGameState(GameManager* manager)
@@ -20,6 +21,8 @@ InGameState::InGameState(GameManager* manager)
 	deltaTime = 0;
 	moveTime = 0;
 
+	
+
 	gm->GetAudio()->Load("music.mp3", "music");
 	gm->GetAudio()->Play("music");
 	//set the camera and perspective
@@ -31,7 +34,7 @@ InGameState::InGameState(GameManager* manager)
 	camera->Update();
 
 	round_state = 1;
-	playerstate = PlayerState::P1;
+	playerstate = P1;
 
 	gm->SetCamera(camera);
 
@@ -107,6 +110,23 @@ InGameState::InGameState(GameManager* manager)
 	powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
 	powerBar->GetSprite()->setBottomLeftOrientation();//We want draw texture from bottom left of the bmp
 
+
+	//Initialize TurnGraphic
+	turnGraphic = gm->CreateGameObject("Turn.bmp", D3DCOLOR_ARGB(255,255,255,255));//Sets white to transparent
+	p1Graphic = gm->CreateGameObject("Player1sign.bmp", D3DCOLOR_ARGB(255,255,255,255));//Sets white to transparent
+	p2Graphic = gm->CreateGameObject("Player2sign.bmp", D3DCOLOR_ARGB(255,255,255,255));//Sets white to transparent
+	bool TF = false;//Set the Player 2 Graphic to Invisible
+	p2Graphic->GetEntity().setVisible(TF);
+	//Set co-ordinates Of the two graphics
+	//Calculate Position from Right of Screen
+	int x  = (gm->GetScreenW() - p1Graphic->GetSprite()->GetTexWidth() -turnGraphic->GetSprite()->GetTexWidth() - turnGraphicX);
+	turnGraphic->GetSprite()->setPosition(x,10);
+	
+	p1Graphic->GetSprite()->setPosition((x + turnGraphic->GetSprite()->GetTexWidth()),10);
+	p2Graphic->GetSprite()->setPosition((x + turnGraphic->GetSprite()->GetTexWidth()),10);
+
+
+	//Initialize State
 	playState = new AimState(gm, this);
 	playState->Enter();
 
@@ -145,7 +165,11 @@ void InGameState::HandleInput(int key, inputStates curState)
 			r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
 			gameThrow++;
 			if(gameThrow == 7) gameThrow = 6;
-		}	
+		}
+		if (key == DIK_T)
+		{
+			ChangePlayerTurn();
+		}
 
 	}
 
@@ -255,5 +279,29 @@ void InGameState::decrimentPowerBar()
 		powerBar->GetSprite()->setHeight(curPowerBarHeight);
 		//we have to adjust the position of the powerbar as it grows
 		powerBar->GetSprite()->setPosition(powerBar_PosX,( powerBar_PosY + powerBar->GetSprite()->GetTexHeight() - powerBar->GetSprite()->getHeight()));
+	}
+}
+
+
+//
+// Demo of Changing turn graphic by pressing T
+//
+void InGameState::ChangePlayerTurn()
+{
+	if (playerstate ==P1)
+	{
+		playerstate = InGameState::P2;
+		bool TF = true;//Set the Player 2 Graphic to Invisible
+		p2Graphic->GetEntity().setVisible(TF);
+		TF = false;//Set the Player 2 Graphic to Invisible
+		p1Graphic->GetEntity().setVisible(TF);
+	}
+	else if (playerstate ==P2)
+	{
+		playerstate = InGameState::P1;
+		bool TF = false;//Set the Player 2 Graphic to Invisible
+		p2Graphic->GetEntity().setVisible(TF);
+		TF = true;//Set the Player 2 Graphic to Invisible
+		p1Graphic->GetEntity().setVisible(TF);
 	}
 }

@@ -1,8 +1,11 @@
-#include "TitleScreenState.h"
+#include "InstructionsState.h"
 
 
-TitleScreenState::TitleScreenState(GameManager* manager)
+InstructionsState::InstructionsState(GameManager* manager)
 {
+	lastFrameTime = 0;
+	deltaTime = 0;
+	moveTime = 0;
 	gm = manager;
 	//set the camera and perspective
 	camera = new Camera();
@@ -21,29 +24,26 @@ TitleScreenState::TitleScreenState(GameManager* manager)
 	g_engine->SetAmbient(D3DCOLOR_RGBA(255,255,255,0));
 }
 
-void TitleScreenState::HandleInput(int key, inputStates curState)
+void InstructionsState::HandleInput(int key, inputStates curState)
 {
-	if (curState == KEYDOWN)
+	if (curState == KEYRELEASE)
 	{
-		if (key == DIK_SPACE)
+		if (key == DIK_RETURN || DIK_NUMPADENTER)
 		{
-			
-			// call exit function on this state
-			this->Exit();
-
-
+				// call exit function on this state
+				this->Exit();
 		}
 	}
 }
 
-void TitleScreenState::Enter()
+void InstructionsState::Enter()
 {
 
-	title =  gm->CreateGameObject("title.bmp");
+	title =  gm->CreateGameObject("instructions.bmp");
 	//title->GetSprite()->setHeight(600)//Testing for game States
 };
 
-void TitleScreenState::Update()
+void InstructionsState::Update()
 {
 
 	if(lastFrameTime == 0)
@@ -64,7 +64,7 @@ void TitleScreenState::Update()
 
 }
 
-void TitleScreenState::Exit()
+void InstructionsState::Exit()
 {
 			// pause the rendering engine
 			g_engine->setPaused(true);
@@ -74,7 +74,7 @@ void TitleScreenState::Exit()
 			gm->DestroyAllObjects();
 
 			// change the state
-			InstructionsState *tempstate = new InstructionsState(gm);
+			InGameState *tempstate = new InGameState(gm);
 			State *newState = tempstate;
 			gm->SetState(newState);
 
@@ -84,4 +84,5 @@ void TitleScreenState::Exit()
 			// resume rendering engine
 			g_engine->setPaused(false);
 }
+
 

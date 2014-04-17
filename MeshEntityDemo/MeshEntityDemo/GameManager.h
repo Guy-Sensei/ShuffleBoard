@@ -16,6 +16,7 @@ class GameManager
 {
 public:
 	GameManager(void);
+	GameManager(const int ScreenW = 800, const int ScreenH = 600);
 	~GameManager(void);
 
 	void InitializePhysics();
@@ -26,6 +27,7 @@ public:
 		const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 
 	GameObject* CreateGameObject(char *filename);
+	GameObject* CreateGameObject(char *filename, D3DCOLOR transCol);//JF: Needed for Transparency
 
 	btDynamicsWorld* GetWorld() { return m_pWorld; }
 	GameObjects* GetObjects() { return m_objects; }
@@ -44,7 +46,10 @@ public:
 	void SetState(State *newState){gameState = newState;}
 	void ChangeState (State *newstate);
 
+	int GetScreenW() {return screenWidth;}
+	int GetScreenH() {return screenHeight;}
 private:
+
 	GameObjects* m_objects;
 	State *gameState;
 	Advanced2D::Camera *m_camera;
@@ -59,7 +64,8 @@ private:
 
 	void DrawBox(GameObject *gameObject);
 	void DrawLine(LPD3DXLINE line, D3DXMATRIX *camProj, D3DCOLOR color, float v1_x, float v1_y, float v1_z, float v2_x, float v2_y, float v2_z);
-
+	int screenWidth;
+	int screenHeight;
 };
 
 #endif

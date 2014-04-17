@@ -95,6 +95,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InGameState.cpp" />
+    <ClCompile Include="InstructionsState.cpp" />
     <ClCompile Include="PlayerData.cpp" />
     <ClCompile Include="PlaySequenceState.cpp" />
     <ClCompile Include="Rock.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="InGameState.h" />
+    <ClInclude Include="InstructionsState.h" />
     <ClInclude Include="MasterGameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerData.h" />

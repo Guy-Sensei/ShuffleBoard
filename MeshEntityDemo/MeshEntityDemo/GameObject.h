@@ -9,12 +9,15 @@
 class GameObject
 {
 public:
-	GameObject(char *filename);//Sprite Constructor
+	
 	GameObject(btCollisionShape* pShape, float mass, const btVector3 &color, const btVector3 &initialPosition = btVector3(0,0,0), const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
+	GameObject(char *filename);//Sprite Constructor
+	GameObject(char *filename, D3DCOLOR transCol);//JF: Needed for Transparency
 	~GameObject();
 
 	// 2D Sprite
 	void LoadSprite(char *filename);
+	void LoadSprite(char *filename, D3DCOLOR transCol);//JF: Needed for Transparency
 	void SetSprite(Advanced2D::Sprite *sprite) { m_sprite = sprite; }
 	//Advanced2D::Sprite* GetSprite() { return dynamic_cast<Advanced2D::Sprite*>(m_entity); }
 	Advanced2D::Sprite* GetSprite() { return m_sprite; }

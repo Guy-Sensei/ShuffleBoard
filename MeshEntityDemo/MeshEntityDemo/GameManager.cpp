@@ -9,6 +9,23 @@ GameManager::GameManager(void)
 }
 
 
+//JF: I added this because it would make the GUI math more readable
+//EX: 800 -100 
+//EX: ScreenW - 100 <--- Programmer knows what sort of math is being done
+
+GameManager::GameManager(const int ScreenW, const int ScreenH)
+{
+	audio = new Advanced2D::Audio();
+	audio->Init();
+	m_objects = new GameObjects();
+
+	//Set Screen Height and Width
+	screenWidth = ScreenW;
+	screenHeight = ScreenH;
+
+}
+
+
 GameManager::~GameManager(void)
 {
 	delete m_pWorld;
@@ -171,6 +188,15 @@ GameObject* GameManager::CreateGameObject(char *filename)
 {
 
 	GameObject* pObject = new GameObject(filename);
+	m_objects->push_back(pObject);
+
+	return pObject;
+}
+
+GameObject* GameManager::CreateGameObject(char *filename, D3DCOLOR transCol)//JF: Needed for Transparency
+{
+
+	GameObject* pObject = new GameObject(filename, transCol);
 	m_objects->push_back(pObject);
 
 	return pObject;

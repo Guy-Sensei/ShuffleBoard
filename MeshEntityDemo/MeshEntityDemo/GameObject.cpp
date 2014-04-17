@@ -42,6 +42,17 @@ GameObject::GameObject(char *filename)
 
 }
 
+GameObject::GameObject(char *filename, D3DCOLOR transCol) 
+{
+	isSprite = true;
+	m_pShape = NULL;
+	m_color = btVector3(1,1,1);
+	m_mesh = false;
+	m_sprite = NULL;
+	LoadSprite(filename, transCol);
+
+}
+
 void GameObject::LoadMesh(char *filename)
 {
 	m_mesh = new Advanced2D::Mesh();
@@ -95,6 +106,16 @@ void GameObject::CreateMeshFromShape()
 	m_mesh->SetPosition(v.x(), v.y(), v.z());
 
 	g_engine->addEntity(m_mesh);
+}
+
+void GameObject::LoadSprite(char *filename, D3DCOLOR transCol)
+{
+	m_sprite = new Advanced2D::Sprite();
+	m_sprite->loadImage(filename, transCol);
+	m_sprite->setObjectType(Advanced2D::RENDER2D);
+	renderType = Advanced2D::RENDER2D;
+	m_entity = m_sprite;
+	g_engine->addEntity(m_sprite);
 }
 
 void GameObject::LoadSprite(char *filename)

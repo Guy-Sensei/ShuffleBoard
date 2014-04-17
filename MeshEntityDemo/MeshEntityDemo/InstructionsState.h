@@ -1,14 +1,10 @@
 //Include Guards
-#ifndef TITLESCREEN_H
-#define TITLESCREEN_H
+#ifndef INSTRUCTIONSSTATE_H
+#define  INSTRUCTIONSSTATE_H
 
 #pragma once
-
-
-
 #include "State.h"
 #include "InGameState.h"
-#include "InstructionsState.h"
 #include "GameManager.h"
 #include "..\..\Engine\Advanced2D.h"
 #include "Rock.h"
@@ -17,9 +13,8 @@ using namespace Advanced2D;
 
 class GameManager;
 class InGameState;
-class InstructionsState;
 
-class TitleScreenState :
+class InstructionsState :
 	public State
 {
 public:
@@ -33,9 +28,9 @@ public:
 	float dt;
 	float previousTime;
 
-	TitleScreenState(){};
-	TitleScreenState(GameManager* manager);
-	~TitleScreenState(){};
+	InstructionsState(){};
+	InstructionsState(GameManager* manager);
+	~InstructionsState(){};
 	void HandleInput(int key, inputStates curState);
 	void Update();
 	void Enter();

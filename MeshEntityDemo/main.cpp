@@ -13,6 +13,7 @@ Description: Demonstrates managed mesh entities
 
 #include "MeshEntityDemo\InGameState.h"
 #include "MeshEntityDemo\TitleScreenState.h"
+#include "MeshEntityDemo\InstructionsState.h"
 #include "MeshEntityDemo\PlaySequenceState.h"
 #include "MeshEntityDemo\AimState.h"
 #include "MeshEntityDemo\EndOfThrowState.h"
@@ -21,6 +22,9 @@ Description: Demonstrates managed mesh entities
 using namespace Advanced2D;
 
 
+//JF: This would eventually make the GUI Maths in the code easier to read
+int ScreenWidth = 800;
+int ScreenHeight = 600;
 
 GameManager* gm;
 /*
@@ -78,8 +82,8 @@ bool game_preload()
 {
 	g_engine->setAppTitle("MESH ENTITY DEMO");
 	g_engine->setFullscreen(false);
-	g_engine->setScreenWidth(800);
-	g_engine->setScreenHeight(600);
+	g_engine->setScreenWidth(ScreenWidth);
+	g_engine->setScreenHeight(ScreenHeight);
 	g_engine->setColorDepth(32);    
 	return 1;
 }
@@ -88,7 +92,7 @@ bool game_init(HWND)
 {
 	
 
-	gm = new GameManager();
+	gm = new GameManager(ScreenWidth, ScreenHeight);
 	State *newState = new TitleScreenState(gm);
 	gm->SetState(newState);
 	gm->GetState()->Enter();
