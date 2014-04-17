@@ -16,6 +16,8 @@
 *.tlog
 *.log
 *.lastbuildstate
+*.sdf
+*.pdb
 
 # Executables
 *.exe
