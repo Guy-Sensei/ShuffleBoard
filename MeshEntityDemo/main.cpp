@@ -90,9 +90,11 @@ bool game_preload()
 
 bool game_init(HWND) 
 {
+
 	
 
 	gm = new GameManager(ScreenWidth, ScreenHeight);
+
 	State *newState = new TitleScreenState(gm);
 	gm->SetState(newState);
 	gm->GetState()->Enter();

@@ -31,7 +31,7 @@ public:
 	int curPowerBarHeight;
 	int maxPowerBarHeight;
 	const static int initialPowerBarHeight = 25;
-	const static int powerBarIncriment = 25;
+	const static int powerBarIncriment = 1;
 	const static int powerBar_PosX = 10; //X position of power bar
 	const static int powerBar_PosY = 75; //Y position of power bar
 
@@ -88,12 +88,18 @@ public:
 	void Exit();
 
 
+
 	//PowerBarRelated
 	void setPowerBarVis(bool vis);//Tells wether to draw powerbar
+
+	void DrawAimLine();
+
 	int getPower(){return curPowerBarHeight;}
 	void incrimentPowerBar();
 	void decrimentPowerBar();
 	void ChangePlayerTurn();
+
+	void Throw();
 };
 
 #endif

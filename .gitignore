@@ -7,7 +7,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Compiled Static libraries
 *.lai
@@ -18,6 +17,7 @@
 *.lastbuildstate
 *.sdf
 *.pdb
+*.opensdf
 
 # Executables
 *.exe

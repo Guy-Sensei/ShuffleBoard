@@ -32,11 +32,15 @@ void AimState::HandleInput(int key, inputStates curState)
 		//Need to find way to break key feeding into the next state
 		if (key == DIK_LCONTROL)
 		{
-
-			
 			this->Exit();
+		}
 
-
+		//Jefferson Fraser APR 17
+		//Replace exit call with some physics event
+		if(key == DIK_SPACE)
+		{
+			
+			pInGameState->Throw();
 		}
 	}
 }

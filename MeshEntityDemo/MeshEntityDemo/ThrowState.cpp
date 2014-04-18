@@ -8,6 +8,7 @@ ThrowState::ThrowState()
 ThrowState::ThrowState(GameManager* manager, InGameState *curInGameStateManager)
 {
 	gm = manager;
+
 	pInGameState = curInGameStateManager;
 }
 
@@ -15,8 +16,6 @@ void ThrowState::HandleInput(int key, inputStates curState)
 {
 	if (curState == KEYRELEASE)
 	{
-		//Jefferson Fraser APR 17
-		//Replace exit call with some physics event
 	
 		if (key == DIK_Z)
 		{

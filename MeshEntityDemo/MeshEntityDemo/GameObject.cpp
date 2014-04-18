@@ -1,16 +1,16 @@
 #include "GameObject.h"
 
 GameObject::GameObject(btCollisionShape* pShape, 
-					   float mass, 
-					   const btVector3 &color, 
+					   float mass,  
 					   const btVector3 &initialPosition, 
 					   const btQuaternion &initialRotation) 
 {
 	isSprite = false;
 	m_pShape = pShape;
-	m_color = color;
-
+	//m_color = color;
 	btTransform transform;
+	m_tempvector = initialPosition;
+	m_temptransform = transform;
 	transform.setIdentity();
 	transform.setOrigin(initialPosition);
 	transform.setRotation(initialRotation);

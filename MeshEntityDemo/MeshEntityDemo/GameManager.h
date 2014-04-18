@@ -22,7 +22,6 @@ public:
 	void InitializePhysics();
 	GameObject* CreateGameObject(btCollisionShape* pShape, 
 		const float &mass, 
-		const btVector3 &color = btVector3(1.0f,1.0f,1.0f), 
 		const btVector3 &initialPosition = btVector3(0.0f,0.0f,0.0f), 
 		const btQuaternion &initialRotation = btQuaternion(0,0,1,1));
 
@@ -45,6 +44,7 @@ public:
 	State *GetState(){return gameState;}
 	void SetState(State *newState){gameState = newState;}
 	void ChangeState (State *newstate);
+	//void DrawLine(LPD3DXLINE line, D3DXMATRIX *camProj, D3DCOLOR color, float v1_x, float v1_y, float v1_z, float v2_x, float v2_y, float v2_z);
 
 	int GetScreenW() {return screenWidth;}
 	int GetScreenH() {return screenHeight;}
@@ -63,9 +63,14 @@ private:
 	btDynamicsWorld* m_pWorld;
 
 	void DrawBox(GameObject *gameObject);
+
 	void DrawLine(LPD3DXLINE line, D3DXMATRIX *camProj, D3DCOLOR color, float v1_x, float v1_y, float v1_z, float v2_x, float v2_y, float v2_z);
 	int screenWidth;
 	int screenHeight;
+
+	
+
+
 };
 
 #endif

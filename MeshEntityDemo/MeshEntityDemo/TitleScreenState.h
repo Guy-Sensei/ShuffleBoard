@@ -19,6 +19,7 @@ class GameManager;
 class InGameState;
 class InstructionsState;
 
+
 class TitleScreenState :
 	public State
 {
