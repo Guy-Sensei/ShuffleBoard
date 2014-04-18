@@ -330,5 +330,5 @@ void InGameState::Throw()
 	r1[gameThrow]->GetRigidBody()->setLinearVelocity(velocity);
 	gameThrow++;
 	ChangePlayerTurn();
-	if(gameThrow == 7) gameThrow = 6;
+	if(gameThrow == 6) gameThrow = 0;
 }
